@@ -1,0 +1,72 @@
+.side-heading{
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	font-size: .8vw;
+	padding: .75vw;
+}
+
+.side-heading>div>img{
+	margin-right: .75vw;
+}
+
+.ctn-main .side-heading, .ctn-main .side-heading-light{
+	padding: .75vw 2vw;
+	margin-bottom: .5vw;
+}
+
+span.title{
+	font-size: 1.75vw;
+}
+
+.txt .side-heading-ctn{
+	border: none;
+}
+
+.txt .side-heading-content{
+	padding: 0;
+}
+
+.txt-ctn{
+	padding: .5vw 1vw;
+	border: 1px solid rgba(5, 5, 5, 0.05);	
+}
+
+.btn-ctn .btn{
+  padding-left: .75vw;
+  padding-right: .75vw;
+}
+
+.table td{
+  padding-left: 2vw;
+  font-size: 0.8vw;
+}
+.gr-ctn span{
+	font-weight: bold;
+	font-size: 1vw;
+	color: #198da9;
+}
+
+.gr-ctn img{
+	height: 8vw;
+	margin-left: 2vw;
+}
+
+.gr-ctn1 img{
+	height: 6vw;
+}
+
+.comp-row .side-heading-ctn{
+	width: 17vw;
+}
+
+.btn-group{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.btn-group .btn{
+	font-size: .75vw;
+	padding: .4vw .75vw;
+}

@@ -1,0 +1,65 @@
+<div class="heading">	
+	Scipoeia&nbsp;&nbsp;>&nbsp;&nbsp;<span class="l-r">Spider</span>
+</div>
+<div class="row mt-4 special">
+	<div class="col-md-4">
+		<div class="rc side-heading-ctn">			
+			<div class="rc side-heading l-l">
+				Results
+				<span class="float-right">					
+					<img src="assets/arrow-up.png" />
+				</span>
+			</div>
+			<div class="side-heading-content">
+				<div class="rc side-heading-light j-sb" *ngFor="let r of results; let i = index;">
+					<span class="l-l">{{ r.value }}</span>
+					<span class="cp"><img src="assets/cross.png" /></span>
+				</div>
+			</div>
+		</div>
+		<div class="btn-ctn j-sb">
+			<button class="btn btn-outline-sh1 btn-lg l-l">Clear</button>
+			<button class="btn btn-sh2 btn-lg l-l">Submit</button>
+		</div>
+	</div>
+	<div class="col-md-8 l-r">
+		<div class="heading"><span>Search Query</span></div>
+		<div class="input-group search-field col-md-8 px-0">
+		  <input type="text" class="form-control" placeholder="Typing text..." />
+		  <div class="input-group-append">
+		    <button class="px-2 py-0 btn btn-outline-none" type="button"><img src="assets/search-button.png"></button>
+		  </div>
+		</div>
+		<div class="heading-ctn-main">
+			<div class="result-row" *ngFor="let r of results; let i = index;">
+				<div class="rc side-heading-light j-sb cp" (click)="selectRow(r)" [ngClass]="{active: isRowActive(r)}">
+					<span class="l-l">{{ r.value }}</span>
+				</div>
+				<table class="table table-striped" *ngIf="r.active">
+				  <tbody>
+				    <tr>
+				      <td>Title</td>
+				      <td>list (1)</td>
+				    </tr>
+				    <tr>
+				      <td>Title</td>
+				      <td>list (2)</td>
+				    </tr>
+				    <tr>
+				      <td>Title</td>
+				      <td>list (3)</td>
+				    </tr>
+				  </tbody>
+				</table>
+			</div>
+		</div>
+		<div class="pag-ctn j-c">
+			<div class="pag-btn" style="margin-right: 30px;"><</div>
+			<div class="num">1</div>
+			<div class="active num">2</div>
+			<div class="num">3</div>
+			<div class="pag-btn" style="margin-left: 30px;">></div>
+		</div>
+	</div>
+</div>
+

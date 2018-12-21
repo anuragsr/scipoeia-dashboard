@@ -1,0 +1,8 @@
+nav a{
+	border-radius: 5px;
+	padding: .4vw 1vw .5vw 1vw;
+	background: #198da9;
+	color: #fff;
+	font-size: 1vw;		
+	margin: .5vw;
+}

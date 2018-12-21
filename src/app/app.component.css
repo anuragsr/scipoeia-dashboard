@@ -1,0 +1,94 @@
+.nav-item a{
+	opacity: .8;
+	text-decoration: none;
+  font-family: 'mont-l';	
+	color: white;
+	margin-left: 3vw;
+	font-size: 1vw;
+	transition: opacity .5s;
+}
+
+.nav-item a:hover{	
+	opacity: 1;
+}
+
+.ctn-route{
+	background: #fff;
+	padding: 2vw;
+	position: relative;
+  z-index: 0;
+  min-height: 60vh;
+}
+
+.side-menu{
+	z-index: 1;
+	width: 35vw;
+	box-shadow: -3px 4px 10px 0px rgba(5, 5, 5, 0.2);
+	background: #fff;
+	position: absolute;
+	top: 150px;
+	right: -35vw;
+	transition: right .5s;
+}
+
+.side-menu.open{
+	right: -5px;	
+}
+
+.side-block{
+	position: absolute;
+	left: -60px;
+  width: 60px;
+	top: 100px;
+}
+
+.side-block-item{
+	border: 1px solid #198da9;
+	background: #198da9;
+	padding: 15px;
+}
+
+.side-block-item:nth-child(1){
+	border-top-left-radius: 10px;
+}
+
+.side-block-item:nth-last-child(1){
+	border-bottom-left-radius: 10px;
+}
+
+.side-block-item img.colored{
+	display: none;
+}
+
+.side-block-item:hover{
+	background: #fff;	
+}
+
+.side-block-item:hover img.main{
+	display: none;	
+}
+
+.side-block-item:hover img.colored{
+	display: block;
+}
+
+.side-heading-content{
+	height: 70vh;
+}
+
+.side-menu .side-heading-light{
+	padding-left: 1vw;
+	margin: .5vw auto;
+}
+
+.side-menu .table{
+  font-size: 0.7vw;
+  color: rgba(0, 0, 0, 0.75);
+}
+
+.side-menu .shadow-text{
+	margin: 2vw auto;
+	color: rgba(0, 0, 0, 0.08);
+	font-size: 2vw;
+	font-weight: bold;
+}

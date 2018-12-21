@@ -1,0 +1,363 @@
+/* You can add global styles to this file, and also import other style files */
+
+@import "~bootstrap/dist/css/bootstrap.css";
+
+select.form-control:focus, 
+textarea:focus, 
+textarea.form-control:focus, 
+input.form-control:focus, 
+input[type=text]:focus, 
+input[type=password]:focus, 
+input[type=email]:focus, 
+input[type=number]:focus, 
+[type=text].form-control:focus, 
+[type=password].form-control:focus, 
+[type=email].form-control:focus, 
+[type=tel].form-control:focus, 
+[contenteditable].form-control:focus {
+  box-shadow: inset 0 -1px 0 #ddd;
+}
+
+.btn:focus, 
+.btn:active:focus, 
+.btn.active:focus{
+  outline:none;
+  box-shadow:none;
+}
+
+@font-face {
+  font-family: 'lato-l';
+  src: url('assets/fonts/Lato-Light.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'lato-r';
+  src: url('assets/fonts/Lato-Regular.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'mont-l';
+  src: url('assets/fonts/Montserrat-Light.otf') format('opentype');
+}
+
+@font-face {
+  font-family: 'basic';
+  src: url('assets/fonts/basictitlefont.ttf') format('truetype');
+}
+
+.b-t{
+  font-family: 'basic';
+}
+
+.l-l{
+  font-family: 'lato-l';
+}
+
+.l-r{
+  font-family: 'lato-r';
+}
+
+*{
+  cursor: url(assets/cursor.svg), auto !important;	
+}
+
+body{
+	background: #edf3f6;
+	overflow-x: hidden;
+}
+
+.rc{
+	border-radius: 5px;
+}
+
+.j-sb{
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+}
+
+.j-c{
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.sa{
+	justify-content: space-around;
+}
+
+.fs{
+	align-items: flex-start;
+}
+
+.cp{
+	cursor: pointer;
+}
+
+.row.special .col-md-4{
+	flex: 0 0 27%;
+	max-width: 27%;
+}
+
+.row.special .col-md-8{
+	flex: 0 0 73%;
+	max-width: 73%;
+}
+
+.header{
+	position: relative;
+	height: 100px;
+	background: url(assets/header-bg.png) no-repeat center;
+	background-size: cover;
+}
+
+.ctn-content{
+	background: url(assets/bg-main.jpg) no-repeat center;
+	background-size: cover;	
+  background-position: 0% 0%;
+}
+
+.footer{
+	font-family: 'lato-l';
+	font-size: .85vw;
+	color: #fff;
+	padding: 2vw;
+	height: 280px;
+	background: url(assets/footer-bg.png) no-repeat center;
+	background-size: cover;
+}
+
+.footer img{
+	height: 3.5vw;
+}
+
+.footer .text{	
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+}
+
+.footer .white-hr{
+	height: 1px;
+	opacity: 0.5;
+	background: #fff;
+}
+
+.footer .text, .footer .white-hr, .footer .copyright{
+	width: 25vw;
+	margin: 0 auto;
+	margin-top: 1.5vw;
+}
+
+.btn{
+	padding: 0.75vw 1.85vw;
+	font-size: .9vw;
+}
+
+.btn-outline-sh1{
+	font-weight: bold;
+  color: #198da9;
+  background-color: transparent;
+  background-image: none;
+  border-color: #198ca8;
+}
+
+.btn-outline-sh1:hover{
+	color: #fff;
+  background-color: #198da9;
+  border-color: #fff;
+}
+
+.btn-sh2{
+	font-weight: bold;
+  color: #fff;
+  background-color: #27d1a7;
+  border-color: #27d1a7;
+}
+
+.btn-sh2:hover{
+	color: #27d1a7;
+  background-color: #fff;
+  border-color: #27d1a7;	
+}
+
+.btn-outline-none{
+  background-color: transparent;
+  border-color: transparent;
+}
+
+.heading{
+	color: #474747;
+}
+
+.heading span{
+  font-weight: bold;
+	color: #198da9;
+}
+
+.side-heading-ctn{
+	border: 1px solid rgba(5, 5, 5, 0.05);
+	margin-bottom: 1vw;	
+}
+
+.side-heading-ctn .float-right{
+	cursor: pointer;
+}
+
+.side-heading{
+	padding: .5vw 1vw;
+  font-weight: bold;
+  font-size: .9vw;
+  letter-spacing: 0.32px;
+	height: 50px;
+	background: #198da9;
+	color: #fff;
+}
+
+.side-heading-content{
+	padding: 1vw;
+	font-size: .9vw;
+}
+
+.side-heading-light{
+  font-size: .8vw;
+	margin-bottom:.25vw;
+	padding: .6vw .6vw .8vw .6vw;
+	color: #3a6e7b;
+	background: #deeaec;
+}
+
+.btn-ctn{
+}
+
+.search-field input, .search-field select{
+	opacity: .7;
+	border-top: none;
+	border-left: none;
+	border-right: none;
+	border-radius: 0;
+	font-size: .9vw;
+	padding: 1.25vw 0.25vw;
+	border-bottom-color: #378699;
+}
+
+.search-field .select-ctn{
+	width: 9vw;
+}
+
+.search-field select{
+	opacity: 1;
+	font-size: .9vw !important;
+	margin: 0 10px !important;
+	padding: 0;
+	height: 49px;
+}
+
+.heading-ctn-main{
+	margin-top: 1.5vw;
+}
+
+.heading-ctn-main .result-row{
+	margin-bottom: .5vw;	
+}
+
+.heading-ctn-main .side-heading-light{
+	padding: .6vw 1.25vw .8vw 1.25vw;	
+	margin-bottom: 0;	
+}
+
+.heading-ctn-main .side-heading-light:hover,
+.heading-ctn-main .side-heading-light.active{
+	background: #198da9;
+	color: #fff;
+}
+
+.heading-ctn-main .side-heading-light span{
+	font-weight: bold;
+}
+
+.pag-ctn {
+	margin-top: 1vw;
+}
+
+.pag-ctn div{
+  color: #198ca8;
+  border: 1px solid #198ca8;
+  height: 30px;
+  width: 30px;
+  padding: 0.3vw;
+  line-height: 1;
+  border-radius: 15px;
+  text-align: center;
+  margin: .15vw;
+  cursor: pointer;
+}
+
+.pag-ctn div.num:hover,
+.pag-ctn div.num.active{
+	color: #fff;
+	background-color: #198ca8;
+  border: 1px solid #fff;
+}
+
+.pag-ctn div.pag-btn{
+	 margin-top:0; 
+	 border: none; 
+	 font-size: 1.15vw;
+}
+
+.select-ctn{
+  margin-bottom: .5vw;
+  position: relative;
+}
+
+.select-ctn img{
+	position: absolute;
+	right: 10px;
+  top: 45%;
+}
+
+.select-ctn select{
+  font-size: 0.75vw;
+  color: rgba(0,0,0,.4);
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+}
+
+.custom-control-label{
+	vertical-align: top;
+}
+
+.custom-checkbox .custom-control-label::after,
+.custom-checkbox .custom-control-label::before{
+	height: 1vw;
+	width: 1vw;
+  background-size: 65%;
+}
+
+.custom-checkbox .custom-control-input:checked ~ .custom-control-label::before{
+	height: 1vw;
+	width: 1vw;
+	background-color: #ffa85a;
+}
+
+.custom-checkbox .custom-control-input:checked ~ .custom-control-label::after{
+	background-image: url(assets/tick.png);
+}
+
+.custom-radio{
+	margin-bottom: .5vw;
+}
+
+.custom-radio .custom-control-input:checked ~ .custom-control-label::before{
+	background-color: #ffa85a;	
+}
+
+.side-heading-content.fh{
+	height: 16vh;
+}
+
+.input-ctn input{
+	width: 7vw;
+}

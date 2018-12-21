@@ -1,0 +1,249 @@
+<div class="heading">	
+	Scipoeia&nbsp;&nbsp;>&nbsp;&nbsp;<span class="l-r">Explorer</span>
+</div>
+<h4 class="heading l-l">Explore over 20,000 journals</h4>
+<div class="heading mt-4">
+	<span class="l-r">Search for Journal or Book Title</span>
+</div>
+<div class="input-group search-field px-0">
+  <input type="text" class="form-control col-md-5" placeholder="Typing text..." />
+  <div class="select-ctn">
+		<img src="assets/arrow-down-bl.png" />
+	  <select class="form-control" [(ngModel)]="searchType" name="searchType">
+			<option hidden value="" disabled selected>Search Type</option>
+			<option *ngFor="let item of searchTypeOpts" [value]="item.id">{{ item.name }}</option>
+		</select>
+  </div>
+  <div class="input-group-append">
+    <button class="ml-2 px-2 py-0 btn btn-outline-none" type="button"><img src="assets/search-button.png"></button>
+  </div>
+</div>
+<div class="search-cri-btn l-l cp">
+	<img src="assets/plus-icon.png" />&nbsp;&nbsp;Add search criteria
+</div>
+<div class="row mt-4 special">
+	<div class="col-md-4">
+		<button class="btn btn-sh2 btn-block l-l btn-icon">
+			<img class="o" src="assets/judge.png" />
+			<img class="c" src="assets/judge-c.png" />&nbsp;&nbsp;Compare
+		</button>
+
+		<div class="refine-search l-r">
+			Refine your search
+		</div>
+
+		<div class="rc side-heading-ctn">
+			<div class="rc side-heading l-l">
+				<div>					
+					<img src="assets/idea.png" />Discipline
+				</div>
+				<span class="float-right">					
+					<img src="assets/arrow-up.png" />
+				</span>
+			</div>
+	    <ng-scrollbar>
+				<div class="side-heading-content fh l-l">
+					<div class="custom-control custom-radio">
+					  <input type="radio" id="c1" name="customRadioInline1" class="custom-control-input">
+					  <label class="custom-control-label" for="c1">Discipline 1</label>
+					</div>
+					<div class="custom-control custom-radio">
+					  <input type="radio" id="c2" name="customRadioInline1" class="custom-control-input">
+					  <label class="custom-control-label" for="c2">Discipline 2</label>
+					</div>
+					<div class="custom-control custom-radio">
+					  <input type="radio" id="c3" name="customRadioInline1" class="custom-control-input">
+					  <label class="custom-control-label" for="c3">Discipline 3</label>
+					</div>
+					<div class="custom-control custom-radio">
+					  <input type="radio" id="c4" name="customRadioInline1" class="custom-control-input">
+					  <label class="custom-control-label" for="c4">Discipline 4</label>
+					</div>
+					<div class="custom-control custom-radio">
+					  <input type="radio" id="c5" name="customRadioInline1" class="custom-control-input">
+					  <label class="custom-control-label" for="c5">Discipline 5</label>
+					</div>
+					<div class="custom-control custom-radio">
+					  <input type="radio" id="c6" name="customRadioInline1" class="custom-control-input">
+					  <label class="custom-control-label" for="c6">Discipline 6</label>
+					</div>
+					<div class="custom-control custom-radio">
+					  <input type="radio" id="c7" name="customRadioInline1" class="custom-control-input">
+					  <label class="custom-control-label" for="c7">Discipline 7</label>
+					</div>
+					<div class="custom-control custom-radio">
+					  <input type="radio" id="c8" name="customRadioInline1" class="custom-control-input">
+					  <label class="custom-control-label" for="c8">Discipline 8</label>
+					</div>
+				</div>
+	    </ng-scrollbar>
+		</div>
+		<div class="rc side-heading-ctn">
+			<div class="rc side-heading l-l">
+				<div>					
+					<img src="assets/planet-earth.png" />Country / Region
+				</div>
+				<span class="float-right">					
+					<img src="assets/arrow-down.png" />
+				</span>
+			</div>
+		</div>
+		<div class="rc side-heading-ctn">
+			<div class="rc side-heading l-l">
+				<div>					
+					<img src="assets/translate.png" />Language
+				</div>
+				<span class="float-right">					
+					<img src="assets/arrow-up.png" />
+				</span>
+			</div>			
+	    <ng-scrollbar>
+				<div class="side-heading-content l-l">
+					<div class="custom-control custom-radio custom-control-inline">
+					  <input type="radio" id="l1" name="customRadioInline2" class="custom-control-input">
+					  <label class="custom-control-label" for="l1">English</label>
+					</div><br/>
+					<div class="custom-control custom-radio custom-control-inline">
+					  <input type="radio" id="l2" name="customRadioInline2" class="custom-control-input">
+					  <label class="custom-control-label" for="l2">German</label>
+					</div><br/>
+					<div class="custom-control custom-radio custom-control-inline">
+					  <input type="radio" id="l3" name="customRadioInline2" class="custom-control-input">
+					  <label class="custom-control-label" for="l3">French</label>
+					</div>
+				</div>
+	    </ng-scrollbar>
+		</div>
+		<div class="rc side-heading-ctn">
+			<div class="rc side-heading l-l">
+				<div>					
+					<img src="assets/punch.png" />Impact Factor
+				</div>
+				<span class="float-right">					
+					<img src="assets/arrow-up.png" />
+				</span>
+			</div>
+			<div class="side-heading-content">
+				<div class="input-ctn l-l">
+					<div class="j-sb mb-2">
+						<span>From</span>
+						<input type="text" class="form-control" />
+	        </div>
+	        <div class="j-sb">
+						<span>To</span>
+						<input type="text" class="form-control" />
+	        </div>
+	      </div>
+			</div>
+		</div>
+		<div class="rc side-heading-ctn">
+			<div class="rc side-heading l-l">
+				<div>					
+					<img src="assets/percentage.png" />Accuracy Rate
+				</div>
+				<span class="float-right">					
+					<img src="assets/arrow-up.png" />
+				</span>
+			</div>
+			<div class="side-heading-content">
+				<div class="input-ctn l-l">
+					<div class="j-sb mb-2">
+						<span>From %</span>
+						<input type="text" class="form-control" />
+	        </div>
+	        <div class="j-sb">
+						<span>To %</span>
+						<input type="text" class="form-control" />
+	        </div>
+	      </div>
+			</div>
+		</div>
+		<div class="btn-ctn j-sb">
+			<button class="btn btn-outline-sh1 btn-lg l-l">Cancel</button>
+			<button class="btn btn-sh2 btn-lg l-l">Submit</button>
+		</div>
+	</div>
+	<div class="col-md-8 l-l heading-ctn-main mt-0">
+		<div class="j-sb fs mb-4">
+			<span class="title b-t">YOUR RESULTS</span>
+			<div>
+				Show on page: 
+				<a class="pag-items" href="#">20</a>
+				<a class="pag-items" href="#">30</a>
+				<a class="pag-items" href="#">50</a>
+			</div>
+		</div>
+		<div class="result-row" *ngFor="let r of results; let i = index;">
+			<div class="rc side-heading-light j-sb cp" (click)="selectRow(r)" [ngClass]="{active: isRowActive(r)}">
+				<span>{{ r.n }}</span>
+				<span>Impact Factor</span>
+				<span>Acc Rule</span>
+				<span>Total Issues</span>
+				<span>Unknown Word</span>
+				<div class="custom-control custom-checkbox">
+				  <input type="checkbox" class="custom-control-input" id="customCheck{{i}}">
+				  <label class="custom-control-label" for="customCheck{{i}}"></label>
+				</div>
+			</div>
+			<table class="table table-striped" *ngIf="r.active">
+			  <tbody>
+			    <tr>
+			      <td>Title</td>
+			      <td>Factor 332</td>
+			      <td>Rule Acc.</td>
+			      <td>Sample Issue</td>
+			      <td>Line Value</td>
+			      <td>&nbsp;</td>
+			    </tr>
+			    <tr>
+			      <td>Title</td>
+			      <td>Factor 321</td>
+			      <td>Rule Acc.</td>
+			      <td>Sample Issue</td>
+			      <td>Line Value</td>
+			      <td>&nbsp;</td>
+			    </tr>
+			    <tr>
+			      <td>Title</td>
+			      <td>Factor 332</td>
+			      <td>Rule Acc.</td>
+			      <td>Sample Issue</td>
+			      <td>Line Value</td>
+			      <td>&nbsp;</td>
+			    </tr>
+			    <tr>
+			      <td>Title</td>
+			      <td>Factor 332</td>
+			      <td>Rule Acc.</td>
+			      <td>Sample Issue</td>
+			      <td>Line Value</td>
+			      <td>&nbsp;</td>
+			    </tr>
+			    <tr>
+			      <td>Title</td>
+			      <td>Factor 321</td>
+			      <td>Rule Acc.</td>
+			      <td>Sample Issue</td>
+			      <td>Line Value</td>
+			      <td>&nbsp;</td>
+			    </tr>
+			    <tr>
+			      <td>Title</td>
+			      <td>Factor 332</td>
+			      <td>Rule Acc.</td>
+			      <td>Sample Issue</td>
+			      <td>Line Value</td>
+			      <td>&nbsp;</td>
+			    </tr>
+			  </tbody>
+			</table>
+		</div>
+		<div class="pag-ctn j-c">
+			<div class="pag-btn" style="margin-right: 30px;"><</div>
+			<div class="num">1</div>
+			<div class="active num">2</div>
+			<div class="num">3</div>
+			<div class="pag-btn" style="margin-left: 30px;">></div>
+		</div>
+	</div>
+</div>

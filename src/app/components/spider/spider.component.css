@@ -1,0 +1,10 @@
+.side-heading{
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+}
+
+.table td{
+  padding-left: 2vw;
+  font-size: 0.8vw;
+}

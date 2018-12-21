@@ -1,0 +1,16 @@
+.side-heading{
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	font-size: .7vw;
+	padding: .75vw;
+}
+
+.side-heading>div>img{
+	margin-right: .75vw;
+}
+
+.ctn-main .side-heading, .ctn-main .side-heading-light{
+	padding: .75vw 2vw;
+	margin-bottom: .5vw;
+}
