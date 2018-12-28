@@ -144,6 +144,8 @@
 		<div class="input-group search-field px-0 my-4">
 		  <div class="tag-ctn col-md-8 px-0">		  	
 				<tag-input [theme]="'bootstrap'"
+									 [placeholder]="'+ Keyword'"
+									 [secondaryPlaceholder]="'Enter Keywords Here'"
 									 [(ngModel)]="searchTags"
 		               (onSelect)="onSelect($event)"
 		               [modelAsStrings]="true"
