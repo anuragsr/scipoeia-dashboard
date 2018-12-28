@@ -55,10 +55,14 @@ textarea{
 	cursor: pointer;
 }
 
-.tag-ctn .side-heading-light:hover{
+.tag-ctn input{
+	border: none;
+}
+
+/*.tag-ctn .side-heading-light:hover{
 	color: #3a6e7b;
 	background: #deeaec;
-}
+}*/
 
 .table td{
   padding-left: 2vw;

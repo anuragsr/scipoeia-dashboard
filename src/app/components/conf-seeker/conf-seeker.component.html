@@ -1,6 +1,9 @@
 <div class="heading">	
 	Scipoeia&nbsp;&nbsp;>&nbsp;&nbsp;<span class="l-r">Conf Seeker</span>	
 </div>
+<div class="back mt-2">
+	<a href="#" class="l-r font-weight-bold">< Back</a>
+</div>
 <div class="heading mt-4">
 	<span class="l-r">Search by Keyword</span>
 </div>
@@ -13,35 +16,110 @@
 <div class="row mt-4 special">
 	<div class="col-md-4">
 		<div class="rc side-heading-ctn">
-			<div class="rc side-heading l-l">
+			<div class="rc side-heading l-l" (click)="toggleSideCountries()">
 				<div>
 					<img src="assets/planet-earth.png" />Country / Region
 				</div>
 				<span class="float-right">					
-					<img src="assets/arrow-down.png" />
+					<img *ngIf="showSideCountries" src="assets/arrow-up.png" />
+					<img *ngIf="!showSideCountries" src="assets/arrow-down.png" />
 				</span>
 			</div>
+	    <ng-scrollbar [hidden]="!showSideCountries">
+				<div class="side-heading-content fh l-l" [hidden]="!showSideCountries">
+					<div class="custom-control custom-radio">
+					  <input type="radio" id="c1" name="customRadioInline1" class="custom-control-input">
+					  <label class="custom-control-label" for="c1">Country / Region 1</label>
+					</div>
+					<div class="custom-control custom-radio">
+					  <input type="radio" id="c2" name="customRadioInline1" class="custom-control-input">
+					  <label class="custom-control-label" for="c2">Country / Region 2</label>
+					</div>
+					<div class="custom-control custom-radio">
+					  <input type="radio" id="c3" name="customRadioInline1" class="custom-control-input">
+					  <label class="custom-control-label" for="c3">Country / Region 3</label>
+					</div>
+					<div class="custom-control custom-radio">
+					  <input type="radio" id="c4" name="customRadioInline1" class="custom-control-input">
+					  <label class="custom-control-label" for="c4">Country / Region 4</label>
+					</div>
+					<div class="custom-control custom-radio">
+					  <input type="radio" id="c5" name="customRadioInline1" class="custom-control-input">
+					  <label class="custom-control-label" for="c5">Country / Region 5</label>
+					</div>
+					<div class="custom-control custom-radio">
+					  <input type="radio" id="c6" name="customRadioInline1" class="custom-control-input">
+					  <label class="custom-control-label" for="c6">Country / Region 6</label>
+					</div>
+					<div class="custom-control custom-radio">
+					  <input type="radio" id="c7" name="customRadioInline1" class="custom-control-input">
+					  <label class="custom-control-label" for="c7">Country / Region 7</label>
+					</div>
+					<div class="custom-control custom-radio">
+					  <input type="radio" id="c8" name="customRadioInline1" class="custom-control-input">
+					  <label class="custom-control-label" for="c8">Country / Region 8</label>
+					</div>
+				</div>
+	    </ng-scrollbar>
 		</div>
 		<div class="rc side-heading-ctn">
-			<div class="rc side-heading l-l">
+			<div class="rc side-heading l-l" (click)="toggleSidePub()">
 				<div>
 					<img src="assets/open-book.png" />Publishers
 				</div>
 				<span class="float-right">					
-					<img src="assets/arrow-down.png" />
+					<img *ngIf="showSidePub" src="assets/arrow-up.png" />
+					<img *ngIf="!showSidePub" src="assets/arrow-down.png" />
 				</span>
 			</div>
+	    <ng-scrollbar [hidden]="!showSidePub">
+				<div class="side-heading-content fh l-l" [hidden]="!showSidePub">
+					<div class="custom-control custom-radio">
+					  <input type="radio" id="c1" name="customRadioInline1" class="custom-control-input">
+					  <label class="custom-control-label" for="c1">Publisher 1</label>
+					</div>
+					<div class="custom-control custom-radio">
+					  <input type="radio" id="c2" name="customRadioInline1" class="custom-control-input">
+					  <label class="custom-control-label" for="c2">Publisher 2</label>
+					</div>
+					<div class="custom-control custom-radio">
+					  <input type="radio" id="c3" name="customRadioInline1" class="custom-control-input">
+					  <label class="custom-control-label" for="c3">Publisher 3</label>
+					</div>
+					<div class="custom-control custom-radio">
+					  <input type="radio" id="c4" name="customRadioInline1" class="custom-control-input">
+					  <label class="custom-control-label" for="c4">Publisher 4</label>
+					</div>
+					<div class="custom-control custom-radio">
+					  <input type="radio" id="c5" name="customRadioInline1" class="custom-control-input">
+					  <label class="custom-control-label" for="c5">Publisher 5</label>
+					</div>
+					<div class="custom-control custom-radio">
+					  <input type="radio" id="c6" name="customRadioInline1" class="custom-control-input">
+					  <label class="custom-control-label" for="c6">Publisher 6</label>
+					</div>
+					<div class="custom-control custom-radio">
+					  <input type="radio" id="c7" name="customRadioInline1" class="custom-control-input">
+					  <label class="custom-control-label" for="c7">Publisher 7</label>
+					</div>
+					<div class="custom-control custom-radio">
+					  <input type="radio" id="c8" name="customRadioInline1" class="custom-control-input">
+					  <label class="custom-control-label" for="c8">Publisher 8</label>
+					</div>
+				</div>
+	    </ng-scrollbar>
 		</div>
 		<div class="rc side-heading-ctn">
-			<div class="rc side-heading l-l">
+			<div class="rc side-heading l-l" (click)="toggleSideConfTime()">
 				<div>
 					<img src="assets/chronometer.png" />Conf Time (?)
 				</div>
 				<span class="float-right">					
-					<img src="assets/arrow-up.png" />
+					<img *ngIf="showSideConfTime" src="assets/arrow-up.png" />
+					<img *ngIf="!showSideConfTime" src="assets/arrow-down.png" />
 				</span>
 			</div>
-			<div class="side-heading-content">
+			<div class="side-heading-content" [hidden]="!showSideConfTime">
 				<div class="select-ctn">
 					<img src="assets/arrow-select.png" />
 					<select class="form-control">

@@ -1,19 +1,25 @@
 <div class="heading">	
 	Scipoeia&nbsp;&nbsp;>&nbsp;&nbsp;<span class="l-r">Spider</span>
 </div>
+<div class="back mt-2">
+	<a href="#" class="l-r font-weight-bold">< Back</a>
+</div>
 <div class="row mt-4 special">
 	<div class="col-md-4">
 		<div class="rc side-heading-ctn">			
-			<div class="rc side-heading l-l">
+			<div class="rc side-heading l-l" (click)="toggleSideResults()">
 				Results
 				<span class="float-right">					
-					<img src="assets/arrow-up.png" />
+					<img *ngIf="showSideResults" src="assets/arrow-up.png" />
+					<img *ngIf="!showSideResults" src="assets/arrow-down.png" />
 				</span>
 			</div>
-			<div class="side-heading-content">
-				<div class="rc side-heading-light j-sb" *ngFor="let r of results; let i = index;">
+			<div class="side-heading-content" [hidden]="!showSideResults">
+				<div class="rc side-heading-light j-sb" *ngFor="let r of (results | checkedResults); let i = index;">
 					<span class="l-l">{{ r.value }}</span>
-					<span class="cp"><img src="assets/cross.png" /></span>
+					<span (click)="uncheck(r)">
+						<img src="assets/cross.png" />
+					</span>
 				</div>
 			</div>
 		</div>
@@ -32,8 +38,12 @@
 		</div>
 		<div class="heading-ctn-main">
 			<div class="result-row" *ngFor="let r of results; let i = index;">
-				<div class="rc side-heading-light j-sb cp" (click)="selectRow(r)" [ngClass]="{active: isRowActive(r)}">
+				<div class="rc side-heading-light j-sb cp" (click)="selectRow(r)" [ngClass]="{active: isRowActive(r)}">				
 					<span class="l-l">{{ r.value }}</span>
+					<div (click)="showRow(r, $event);" class="custom-control custom-checkbox">
+					  <input [(ngModel)]="r.checked" type="checkbox" class="custom-control-input" id="customCheck{{i}}">
+					  <label id="lb{{i}}" class="custom-control-label" for="customCheck{{i}}"></label>
+					</div>
 				</div>
 				<table class="table table-striped" *ngIf="r.active">
 				  <tbody>

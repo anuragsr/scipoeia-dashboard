@@ -1,6 +1,9 @@
 <div class="heading">	
 	Scipoeia&nbsp;&nbsp;>&nbsp;&nbsp;<span class="l-r">Suggester</span>
 </div>
+<div class="back mt-2">
+	<a href="#" class="l-r font-weight-bold">< Back</a>
+</div>
 <div class="row mt-4 special">
 	<div class="col-md-4">
 		<button class="btn btn-sh2 btn-block l-l mb-4 btn-icon">
@@ -9,16 +12,17 @@
 		</button>
 
 		<div class="rc side-heading-ctn txt">
-			<div class="rc side-heading l-l">
+			<div class="rc side-heading l-l" (click)="toggleSideSCIBr()">
 				<div>					
 					<img src="assets/sci.png" />SCI Branch
 				</div>
 				<span class="float-right">					
-					<img src="assets/arrow-up.png" />
+					<img *ngIf="showSideSCIBr" src="assets/arrow-up.png" />
+					<img *ngIf="!showSideSCIBr" src="assets/arrow-down.png" />
 				</span>
 			</div>
-			<div class="side-heading-content l-l">
-				<div class="txt-ctn">					
+			<div class="side-heading-content l-l" [hidden]="!showSideSCIBr">
+				<div class="txt-ctn">
 					Branch 1
 				</div>
 				<div class="txt-ctn">					
@@ -33,15 +37,16 @@
 			</div>
 		</div>
 		<div class="rc side-heading-ctn txt">
-			<div class="rc side-heading l-l">
+			<div class="rc side-heading l-l" (click)="toggleSideCate()">
 				<div>					
 					<img src="assets/cat.png" />Categories
 				</div>
 				<span class="float-right">					
-					<img src="assets/arrow-up.png" />
+					<img *ngIf="showSideCate" src="assets/arrow-up.png" />
+					<img *ngIf="!showSideCate" src="assets/arrow-down.png" />
 				</span>
 			</div>
-			<div class="side-heading-content l-l">
+			<div class="side-heading-content l-l" [hidden]="!showSideCate">
 				<div class="txt-ctn">					
 					Category 1
 				</div>
@@ -57,15 +62,16 @@
 			</div>
 		</div>
 		<div class="rc side-heading-ctn">
-			<div class="rc side-heading l-l">
+			<div class="rc side-heading l-l" (click)="toggleSideImpactFac()">
 				<div>					
 					<img src="assets/punch.png" />Impact Factor
 				</div>
 				<span class="float-right">					
-					<img src="assets/arrow-up.png" />
+					<img *ngIf="showSideImpactFac" src="assets/arrow-up.png" />
+					<img *ngIf="!showSideImpactFac" src="assets/arrow-down.png" />
 				</span>
 			</div>
-			<div class="side-heading-content">
+			<div class="side-heading-content" [hidden]="!showSideImpactFac">
 				<div class="input-ctn l-l">
 					<div class="j-sb mb-2">
 						<span>Range</span>
@@ -79,15 +85,16 @@
 			</div>
 		</div>
 		<div class="rc side-heading-ctn">
-			<div class="rc side-heading l-l">
+			<div class="rc side-heading l-l" (click)="toggleSideAccRate()">
 				<div>					
-					<img src="assets/percentage.png" />Accuracy Rate
+					<img src="assets/percentage.png" />Acceptance Rate
 				</div>
 				<span class="float-right">					
-					<img src="assets/arrow-up.png" />
+					<img *ngIf="showSideAccRate" src="assets/arrow-up.png" />
+					<img *ngIf="!showSideAccRate" src="assets/arrow-down.png" />
 				</span>
 			</div>
-			<div class="side-heading-content">
+			<div class="side-heading-content" [hidden]="!showSideAccRate">
 				<div class="input-ctn l-l">
 					<div class="j-sb mb-2">
 						<span>Range</span>
@@ -101,15 +108,16 @@
 			</div>
 		</div>
 		<div class="rc side-heading-ctn">
-			<div class="rc side-heading l-l">
+			<div class="rc side-heading l-l" (click)="toggleSideCountries()">
 				<div>					
 					<img src="assets/planet-earth.png" />Country / Region
 				</div>
 				<span class="float-right">					
-					<img src="assets/arrow-down.png" />
+					<img *ngIf="showSideCountries" src="assets/arrow-up.png" />
+					<img *ngIf="!showSideCountries" src="assets/arrow-down.png" />
 				</span>
 			</div>
-			<div class="side-heading-content">
+			<div class="side-heading-content" [hidden]="!showSideCountries">
 				<div class="select-ctn">
 					<img src="assets/arrow-select.png" />
 					<select class="form-control">
@@ -127,23 +135,39 @@
 		<div class="heading">
 			<span class="l-r">Search title</span>
 		</div>
-		<div class="input-group search-field px-0 mb-4">
-		  <input type="text" class="form-control col-md-7" placeholder="Typing text..." />
-		  <div class="input-group-append">
-		    <button class="ml-2 px-2 py-0 btn btn-outline-none" type="button"><img src="assets/search-button.png"></button>
-		  </div>
-		</div>
 
-		<textarea class="form-control mb-4" placeholder="Text comes here"></textarea>
+		<textarea class="form-control my-4" placeholder="Text comes here"></textarea>
 
 		<div class="heading">
 			<span class="l-r">Search keyword</span>
 		</div>
-		<div class="input-group search-field px-0 my-2">
+		<div class="input-group search-field px-0 my-4">
+		  <div class="tag-ctn col-md-8 px-0">		  	
+				<tag-input [theme]="'bootstrap'"
+									 [(ngModel)]="searchTags"
+		               (onSelect)="onSelect($event)"
+		               [modelAsStrings]="true"
+		               [separatorKeyCodes]="[32]">
+		    </tag-input>
+		  </div>
+		  <div class="col-md-4">		  	
+	   		<button class="btn btn-sh2 btn-block l-l rc ml-2 btn-icon" (click)="search()">
+					<img class="o" src="assets/search-w.png" />
+					<img class="c" src="assets/search-c.png" />&nbsp;&nbsp;Search
+				</button>
+		  </div>
+		</div>
+<!-- 		<div class="input-group search-field px-0 my-4">
 		  <div class="tag-ctn col-md-8 px-0">
-		  	<div class="rc side-heading-light">keyword 1<img src="assets/cross.png" /></div>
-		  	<div class="rc side-heading-light">keyword 2<img src="assets/cross.png" /></div>
-		  	<div class="rc side-heading-light">keyword 3<img src="assets/cross.png" /></div>
+		  	<div class="rc side-heading-light">
+		  		keyword 1<img src="assets/cross.png" />
+		  	</div>
+		  	<div class="rc side-heading-light">
+		  		keyword 2<img src="assets/cross.png" />
+		  	</div>
+		  	<div class="rc side-heading-light">
+		  		keyword 3<img src="assets/cross.png" />
+		  	</div>
 		  </div>
 		  <div class="col-md-4">		  	
 	   		<button class="btn btn-sh2 btn-block l-l rc ml-2 btn-icon">
@@ -151,7 +175,7 @@
 					<img class="c" src="assets/search-c.png" />&nbsp;&nbsp;Search
 				</button>
 		  </div>
-		</div>
+		</div> -->
 
 		<div class="result-row" *ngFor="let r of results; let i = index;">
 			<div class="rc side-heading-light j-sb cp" (click)="selectRow(r)" [ngClass]="{active: isRowActive(r)}">
@@ -160,8 +184,8 @@
 				<span>Acc Rule</span>
 				<span>Total Issues</span>
 				<span>Unknown Word</span>
-				<div class="custom-control custom-checkbox">
-				  <input type="checkbox" class="custom-control-input" id="customCheck{{i}}">
+				<div (click)="showRow(r, $event);" class="custom-control custom-checkbox">
+				  <input [(ngModel)]="r.checked" type="checkbox" class="custom-control-input" id="customCheck{{i}}">
 				  <label class="custom-control-label" for="customCheck{{i}}"></label>
 				</div>
 			</div>

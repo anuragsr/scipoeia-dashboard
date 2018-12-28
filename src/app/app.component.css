@@ -20,14 +20,18 @@
   min-height: 60vh;
 }
 
+.ctn-route.full-height{
+  min-height: 100vh;
+}
+
 .side-menu{
 	z-index: 1;
-	width: 35vw;
+	width: 25vw;
 	box-shadow: -3px 4px 10px 0px rgba(5, 5, 5, 0.2);
 	background: #fff;
 	position: absolute;
 	top: 150px;
-	right: -35vw;
+	right: -25vw;
 	transition: right .5s;
 }
 

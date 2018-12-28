@@ -7,29 +7,49 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SpiderComponent implements OnInit {
 
-	results:any = [];
+  results:any[];
+	showSideResults:boolean;
   
   constructor() {
-  	this.results = [
-  		{value: "Result 1", active: false},
-  		{value: "Result 2", active: true},
-  		{value: "Result 3", active: false},
-  		{value: "Result 4", active: false},
-  		{value: "Result 5", active: false},
-  		{value: "Result 6", active: false},
-  	];
+    this.results = [
+      {value: "Result 1", active: false, checked: false},
+      {value: "Result 2", active: true, checked: false},
+      {value: "Result 3", active: false, checked: false},
+      {value: "Result 4", active: false, checked: false},
+      {value: "Result 5", active: false, checked: false},
+      {value: "Result 6", active: false, checked: false},
+    ];
+    
+    this.showSideResults = false;
   }
 
   ngOnInit() {
   }
 
-  selectRow(r){
-  	this.results.forEach(x => {
-  		x.active = false;
-  	})
-  	r.active = true;
+  toggleSideResults(){
+    this.showSideResults = !this.showSideResults;
+    // console.log(this.showSideResults)
+  }
 
-  	console.log(r)
+  uncheck(r){
+    r.checked = false;
+    // console.log("CheckBox unchecked")    
+  }
+
+  showRow(r, $event){
+    $event.stopPropagation();
+    // console.log("CheckBox clicked")    
+  }
+
+  selectRow(r){    
+    this.results.forEach(x => {
+      if(r !== x)
+        x.active = false;
+    })
+
+    r.active = !r.active;
+    
+    // console.log("Row clicked")    
   }
 
   isRowActive(r){

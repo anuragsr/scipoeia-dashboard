@@ -30,7 +30,7 @@
   </div>
 
   <div class="w-100 ctn-content">    
-    <div class="container ctn-route">
+    <div class="container ctn-route" [ngClass]="{'full-height': router.url ==='/'}">
       <router-outlet></router-outlet>
     </div>
   </div>
@@ -62,7 +62,7 @@
         <img class="colored" src="assets/bl-3c.png" />
       </div>
     </div>
-    <div class="side-heading rc text-center">Suggester History</div>
+    <div class="side-heading rc text-center j-c">Suggester History</div>
     <ng-scrollbar>
       <div class="side-heading-content">
         <div class="heading py-2"><span>15.06.2018</span></div>

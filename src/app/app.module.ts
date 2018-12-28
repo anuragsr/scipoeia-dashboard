@@ -11,6 +11,10 @@ import { CompareComponent } from './components/compare/compare.component';
 import { SuggesterComponent } from './components/suggester/suggester.component';
 import { HomeComponent } from './components/home/home.component';
 import { NgScrollbarModule } from 'ngx-scrollbar';
+import { CheckedResultsPipe } from './pipes/checked-results.pipe';
+import { TagInputModule } from 'ngx-chips';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations'; // this is needed!
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -20,13 +24,17 @@ import { NgScrollbarModule } from 'ngx-scrollbar';
     ExplorerComponent,
     CompareComponent,
     SuggesterComponent,
-    HomeComponent
+    HomeComponent,
+    CheckedResultsPipe,
   ],
   imports: [
     BrowserModule,
     FormsModule,
     AppRoutingModule,
-    NgScrollbarModule
+    NgScrollbarModule,
+    TagInputModule, 
+    BrowserAnimationsModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

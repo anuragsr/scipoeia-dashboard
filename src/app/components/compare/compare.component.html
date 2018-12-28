@@ -1,18 +1,22 @@
 <div class="heading">	
 	Scipoeia&nbsp;&nbsp;>&nbsp;&nbsp;<span class="l-r">Compare</span>
 </div>
+<div class="back mt-2">
+	<a href="#" class="l-r font-weight-bold">< Back</a>
+</div>
 <div class="row mt-4 special">
 	<div class="col-md-4">
 		<div class="rc side-heading-ctn">
-			<div class="rc side-heading l-l">
+			<div class="rc side-heading l-l" (click)="toggleSideCompSet()">
 				<div>					
 					Comparision Settings
 				</div>
 				<span class="float-right">					
-					<img src="assets/arrow-up.png" />
+					<img *ngIf="showSideCompSet" src="assets/arrow-up.png" />
+					<img *ngIf="!showSideCompSet" src="assets/arrow-down.png" />
 				</span>
 			</div>
-			<div class="side-heading-content">
+			<div class="side-heading-content" [hidden]="!showSideCompSet">
 				<div class="input-ctn l-l">
 					<div class="j-sb mb-2">
 						<span>Year From</span>
@@ -26,15 +30,16 @@
 			</div>
 		</div>
 		<div class="rc side-heading-ctn">			
-			<div class="rc side-heading l-l">
+			<div class="rc side-heading l-l" (click)="toggleSideSelJournal()">
 				<div>					
 					Select Journals
 				</div>
 				<span class="float-right">					
-					<img src="assets/arrow-up.png" />
+					<img *ngIf="showSideSelJournal" src="assets/arrow-up.png" />
+					<img *ngIf="!showSideSelJournal" src="assets/arrow-down.png" />
 				</span>
 			</div>
-			<div class="side-heading-content">
+			<div class="side-heading-content" [hidden]="!showSideSelJournal">
 				<input type="text" class="form-control mb-2" placeholder="Journal Search">
 				<div class="rc side-heading-light j-sb">
 					<span class="l-l">Result 1</span>
@@ -47,41 +52,63 @@
 			</div>
 		</div>
 		<div class="rc side-heading-ctn">
-			<div class="rc side-heading l-l">
+			<div class="rc side-heading l-l" (click)="toggleSideSelCate()">
 				<div>					
 					Select Categories
 				</div>
 				<span class="float-right">					
-					<img src="assets/arrow-up.png" />
+					<img *ngIf="showSideSelCate" src="assets/arrow-up.png" />
+					<img *ngIf="!showSideSelCate" src="assets/arrow-down.png" />
 				</span>
-			</div>			
-	    <ng-scrollbar>
-				<div class="side-heading-content l-l">
-					<div class="custom-control custom-radio custom-control-inline">
-					  <input type="radio" id="l1" name="customRadioInline2" class="custom-control-input">
-					  <label class="custom-control-label" for="l1">Category 1</label>
-					</div><br/>
-					<div class="custom-control custom-radio custom-control-inline">
-					  <input type="radio" id="l2" name="customRadioInline2" class="custom-control-input">
-					  <label class="custom-control-label" for="l2">Category 2</label>
-					</div><br/>
-					<div class="custom-control custom-radio custom-control-inline">
-					  <input type="radio" id="l3" name="customRadioInline2" class="custom-control-input">
-					  <label class="custom-control-label" for="l3">Category 3</label>
+			</div>
+			<ng-scrollbar [hidden]="!showSideSelCate">
+				<div class="side-heading-content fh l-l" [hidden]="!showSideSelCate">
+					<div class="custom-control custom-radio">
+					  <input type="radio" id="cr1" name="customRadioInline2" class="custom-control-input">
+					  <label class="custom-control-label" for="cr1">Category 1</label>
+					</div>
+					<div class="custom-control custom-radio">
+					  <input type="radio" id="cr2" name="customRadioInline2" class="custom-control-input">
+					  <label class="custom-control-label" for="cr2">Category 2</label>
+					</div>
+					<div class="custom-control custom-radio">
+					  <input type="radio" id="cr3" name="customRadioInline2" class="custom-control-input">
+					  <label class="custom-control-label" for="cr3">Category 3</label>
+					</div>
+					<div class="custom-control custom-radio">
+					  <input type="radio" id="cr4" name="customRadioInline2" class="custom-control-input">
+					  <label class="custom-control-label" for="cr4">Category 4</label>
+					</div>
+					<div class="custom-control custom-radio">
+					  <input type="radio" id="cr5" name="customRadioInline2" class="custom-control-input">
+					  <label class="custom-control-label" for="cr5">Category 5</label>
+					</div>
+					<div class="custom-control custom-radio">
+					  <input type="radio" id="cr6" name="customRadioInline2" class="custom-control-input">
+					  <label class="custom-control-label" for="cr6">Category 6</label>
+					</div>
+					<div class="custom-control custom-radio">
+					  <input type="radio" id="cr7" name="customRadioInline2" class="custom-control-input">
+					  <label class="custom-control-label" for="cr7">Category 7</label>
+					</div>
+					<div class="custom-control custom-radio">
+					  <input type="radio" id="cr8" name="customRadioInline2" class="custom-control-input">
+					  <label class="custom-control-label" for="cr8">Category 8</label>
 					</div>
 				</div>
 	    </ng-scrollbar>
 		</div>
 		<div class="rc side-heading-ctn txt">
-			<div class="rc side-heading l-l">
+			<div class="rc side-heading l-l" (click)="toggleSideAccRate()">
 				<div>					
-					Accuracy Rate
+					Acceptance Rate
 				</div>
 				<span class="float-right">					
-					<img src="assets/arrow-up.png" />
+					<img *ngIf="showSideAccRate" src="assets/arrow-up.png" />
+					<img *ngIf="!showSideAccRate" src="assets/arrow-down.png" />
 				</span>
 			</div>
-			<div class="side-heading-content l-l">
+			<div class="side-heading-content l-l" [hidden]="!showSideAccRate">
 				<div class="txt-ctn">					
 					Metric 1
 				</div>
