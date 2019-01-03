@@ -47,13 +47,17 @@ span.title{
 	color: #198da9;
 }
 
-.gr-ctn img{
+/*.gr-ctn img{
 	height: 8vw;
 	margin-left: 2vw;
 }
 
 .gr-ctn1 img{
 	height: 6vw;
+}*/
+
+canvas#chart3{
+	margin-left: 2vw;
 }
 
 .comp-row .side-heading-ctn{

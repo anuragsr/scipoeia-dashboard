@@ -10,6 +10,10 @@
 	margin-right: .75vw;
 }
 
+a.btn-link{
+	text-decoration: none;
+}
+
 .txt .side-heading-ctn{
 	border: none;
 }

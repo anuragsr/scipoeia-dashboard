@@ -1,13 +1,13 @@
 <div class="heading">	
 	Scipoeia&nbsp;&nbsp;>&nbsp;&nbsp;<span class="l-r">Spider</span>
 </div>
-<div class="back mt-2">
+<!-- <div class="back mt-2">
 	<a href="#" class="l-r font-weight-bold">< Back</a>
-</div>
+</div> -->
 <div class="row mt-4 special">
 	<div class="col-md-4">
 		<div class="rc side-heading-ctn">			
-			<div class="rc side-heading l-l" (click)="toggleSideResults()">
+			<div class="rc side-heading l-l cp" (click)="toggleSideResults()">
 				Results
 				<span class="float-right">					
 					<img *ngIf="showSideResults" src="assets/arrow-up.png" />
@@ -17,14 +17,14 @@
 			<div class="side-heading-content" [hidden]="!showSideResults">
 				<div class="rc side-heading-light j-sb" *ngFor="let r of (results | checkedResults); let i = index;">
 					<span class="l-l">{{ r.value }}</span>
-					<span (click)="uncheck(r)">
+					<span class="cp" (click)="uncheck(r)">
 						<img src="assets/cross.png" />
 					</span>
 				</div>
 			</div>
 		</div>
 		<div class="btn-ctn j-sb">
-			<button class="btn btn-outline-sh1 btn-lg l-l">Clear</button>
+			<button class="btn btn-outline-sh1 btn-lg l-l" (click)="clear()">Clear</button>
 			<button class="btn btn-sh2 btn-lg l-l">Submit</button>
 		</div>
 	</div>

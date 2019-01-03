@@ -42,10 +42,10 @@ export class SpiderComponent implements OnInit {
   }
 
   selectRow(r){    
-    this.results.forEach(x => {
-      if(r !== x)
-        x.active = false;
-    })
+    // this.results.forEach(x => {
+    //   if(r !== x)
+    //     x.active = false;
+    // })
 
     r.active = !r.active;
     
@@ -54,6 +54,10 @@ export class SpiderComponent implements OnInit {
 
   isRowActive(r){
   	return r.active;
+  }
+
+  clear(){
+    this.results.forEach(x => x.checked = false)
   }
 
 }

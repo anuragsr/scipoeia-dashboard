@@ -1,18 +1,21 @@
 <div class="heading">	
 	Scipoeia&nbsp;&nbsp;>&nbsp;&nbsp;<span class="l-r">Suggester</span>
 </div>
-<div class="back mt-2">
+<!-- <div class="back mt-2">
 	<a href="#" class="l-r font-weight-bold">< Back</a>
-</div>
+</div> -->
 <div class="row mt-4 special">
 	<div class="col-md-4">
-		<button class="btn btn-sh2 btn-block l-l mb-4 btn-icon">
-			<img class="o" src="assets/judge.png" />
-			<img class="c" src="assets/judge-c.png" />&nbsp;&nbsp;Compare
-		</button>
+		<a routerLink="/compare" class="btn-link">			
+			<button class="btn btn-sh2 btn-block l-l mb-4 btn-icon">
+				<img class="o" src="assets/judge.png" />
+				<img class="c" src="assets/judge-c.png" />&nbsp;&nbsp;Compare
+			</button>
+		</a>
 
-		<div class="rc side-heading-ctn txt">
-			<div class="rc side-heading l-l" (click)="toggleSideSCIBr()">
+		<!-- <div class="rc side-heading-ctn txt"> -->
+		<div class="rc side-heading-ctn">
+			<div class="rc side-heading l-l cp" (click)="toggleSideSCIBr()">
 				<div>					
 					<img src="assets/sci.png" />SCI Branch
 				</div>
@@ -21,7 +24,47 @@
 					<img *ngIf="!showSideSCIBr" src="assets/arrow-down.png" />
 				</span>
 			</div>
-			<div class="side-heading-content l-l" [hidden]="!showSideSCIBr">
+			<ng-scrollbar [hidden]="!showSideSCIBr">
+				<div class="side-heading-content fh l-l" [hidden]="!showSideSCIBr">
+					<div *ngFor="let c of sciBranch; let i = index;" class="custom-control custom-checkbox mb-2 cat">
+					  <input [(ngModel)]="c.checked" type="checkbox" class="custom-control-input" id="checkSci{{i}}">
+					  <label class="custom-control-label" for="checkSci{{i}}">&nbsp;&nbsp;{{c.name}}</label>
+					</div>	
+					<!-- <div class="custom-control custom-radio">
+					  <input type="radio" id="br1" name="cRI2" class="custom-control-input">
+					  <label class="custom-control-label" for="br1">Branch 1</label>
+					</div>
+					<div class="custom-control custom-radio">
+					  <input type="radio" id="br2" name="cRI2" class="custom-control-input">
+					  <label class="custom-control-label" for="br2">Branch 2</label>
+					</div>
+					<div class="custom-control custom-radio">
+					  <input type="radio" id="br3" name="cRI2" class="custom-control-input">
+					  <label class="custom-control-label" for="br3">Branch 3</label>
+					</div>
+					<div class="custom-control custom-radio">
+					  <input type="radio" id="br4" name="cRI2" class="custom-control-input">
+					  <label class="custom-control-label" for="br4">Branch 4</label>
+					</div>
+					<div class="custom-control custom-radio">
+					  <input type="radio" id="br5" name="cRI2" class="custom-control-input">
+					  <label class="custom-control-label" for="br5">Branch 5</label>
+					</div>
+					<div class="custom-control custom-radio">
+					  <input type="radio" id="br6" name="cRI2" class="custom-control-input">
+					  <label class="custom-control-label" for="br6">Branch 6</label>
+					</div>
+					<div class="custom-control custom-radio">
+					  <input type="radio" id="br7" name="cRI2" class="custom-control-input">
+					  <label class="custom-control-label" for="br7">Branch 7</label>
+					</div>
+					<div class="custom-control custom-radio">
+					  <input type="radio" id="br8" name="cRI2" class="custom-control-input">
+					  <label class="custom-control-label" for="br8">Branch 8</label>
+					</div> -->
+				</div>
+	    </ng-scrollbar>
+			<!-- <div class="side-heading-content l-l" [hidden]="!showSideSCIBr">
 				<div class="txt-ctn">
 					Branch 1
 				</div>
@@ -34,10 +77,10 @@
 				<div class="txt-ctn">					
 					Branch 4
 				</div>
-			</div>
-		</div>
-		<div class="rc side-heading-ctn txt">
-			<div class="rc side-heading l-l" (click)="toggleSideCate()">
+			</div> -->
+		</div> 
+		<div class="rc side-heading-ctn">
+			<div class="rc side-heading l-l cp" (click)="toggleSideCate()">
 				<div>					
 					<img src="assets/cat.png" />Categories
 				</div>
@@ -46,7 +89,47 @@
 					<img *ngIf="!showSideCate" src="assets/arrow-down.png" />
 				</span>
 			</div>
-			<div class="side-heading-content l-l" [hidden]="!showSideCate">
+			<ng-scrollbar [hidden]="!showSideCate">
+				<div class="side-heading-content fh l-l" [hidden]="!showSideCate">
+					<div *ngFor="let c of cat; let i = index;" class="custom-control custom-checkbox mb-2 cat">
+					  <input [(ngModel)]="c.checked" type="checkbox" class="custom-control-input" id="checkCat{{i}}">
+					  <label class="custom-control-label" for="checkCat{{i}}">&nbsp;&nbsp;{{c.name}}</label>
+					</div>					
+					<!-- <div class="custom-control custom-radio">
+					  <input type="radio" id="cr1" name="cRI3" class="custom-control-input">
+					  <label class="custom-control-label" for="cr1">Category 1</label>
+					</div>
+					<div class="custom-control custom-radio">
+					  <input type="radio" id="cr2" name="cRI3" class="custom-control-input">
+					  <label class="custom-control-label" for="cr2">Category 2</label>
+					</div>
+					<div class="custom-control custom-radio">
+					  <input type="radio" id="cr3" name="cRI3" class="custom-control-input">
+					  <label class="custom-control-label" for="cr3">Category 3</label>
+					</div>
+					<div class="custom-control custom-radio">
+					  <input type="radio" id="cr4" name="cRI3" class="custom-control-input">
+					  <label class="custom-control-label" for="cr4">Category 4</label>
+					</div>
+					<div class="custom-control custom-radio">
+					  <input type="radio" id="cr5" name="cRI3" class="custom-control-input">
+					  <label class="custom-control-label" for="cr5">Category 5</label>
+					</div>
+					<div class="custom-control custom-radio">
+					  <input type="radio" id="cr6" name="cRI3" class="custom-control-input">
+					  <label class="custom-control-label" for="cr6">Category 6</label>
+					</div>
+					<div class="custom-control custom-radio">
+					  <input type="radio" id="cr7" name="cRI3" class="custom-control-input">
+					  <label class="custom-control-label" for="cr7">Category 7</label>
+					</div>
+					<div class="custom-control custom-radio">
+					  <input type="radio" id="cr8" name="cRI3" class="custom-control-input">
+					  <label class="custom-control-label" for="cr8">Category 8</label>
+					</div> -->
+				</div>
+	    </ng-scrollbar>
+<!-- 			<div class="side-heading-content l-l" [hidden]="!showSideCate">
 				<div class="txt-ctn">					
 					Category 1
 				</div>
@@ -59,10 +142,10 @@
 				<div class="txt-ctn">					
 					Category 4
 				</div>
-			</div>
+			</div> -->
 		</div>
 		<div class="rc side-heading-ctn">
-			<div class="rc side-heading l-l" (click)="toggleSideImpactFac()">
+			<div class="rc side-heading l-l cp" (click)="toggleSideImpactFac()">
 				<div>					
 					<img src="assets/punch.png" />Impact Factor
 				</div>
@@ -77,15 +160,15 @@
 						<span>Range</span>
 	        </div>
 	        <div class="j-sb">
-						<input type="text" class="form-control" />
+						<input type="text" [(ngModel)]="impFac.from" class="form-control" />
 						<span class="dash"></span>
-						<input type="text" class="form-control" />
+						<input type="text" [(ngModel)]="impFac.to" class="form-control" />
 	        </div>
 	      </div>
 			</div>
 		</div>
 		<div class="rc side-heading-ctn">
-			<div class="rc side-heading l-l" (click)="toggleSideAccRate()">
+			<div class="rc side-heading l-l cp" (click)="toggleSideAccRate()">
 				<div>					
 					<img src="assets/percentage.png" />Acceptance Rate
 				</div>
@@ -100,15 +183,15 @@
 						<span>Range</span>
 	        </div>
 	        <div class="j-sb">
-						<input type="text" class="form-control" />
+						<input type="text" [(ngModel)]="accRate.from" class="form-control" />
 						<span class="dash"></span>
-						<input type="text" class="form-control" />
+						<input type="text" [(ngModel)]="accRate.to" class="form-control" />
 	        </div>
 	      </div>
 			</div>
 		</div>
 		<div class="rc side-heading-ctn">
-			<div class="rc side-heading l-l" (click)="toggleSideCountries()">
+			<div class="rc side-heading l-l cp" (click)="toggleSideCountries()">
 				<div>					
 					<img src="assets/planet-earth.png" />Country / Region
 				</div>
@@ -127,7 +210,7 @@
       </div>
 		</div>
 		<div class="btn-ctn j-sb">
-			<button class="btn btn-outline-sh1 btn-lg l-l">Cancel</button>
+			<button class="btn btn-outline-sh1 btn-lg l-l" (click)="clear()">Cancel</button>
 			<button class="btn btn-sh2 btn-lg l-l">Submit</button>
 		</div>
 	</div>

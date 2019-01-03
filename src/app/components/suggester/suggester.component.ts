@@ -8,6 +8,10 @@ import { Component, OnInit } from '@angular/core';
 export class SuggesterComponent implements OnInit {
 
   results:any[];
+  cat:any[];
+  sciBranch:any[];
+  impFac:any;
+  accRate:any;
 	keywordStr:String;
   showSideSCIBr:boolean;
   showSideCate:boolean;
@@ -27,6 +31,31 @@ export class SuggesterComponent implements OnInit {
   		{ n: "Result 7", active: false, checked: false },
   		{ n: "Result 8", active: false, checked: false },
   	];
+
+    this.cat = [
+      { name:  "Category 1", checked: false},
+      { name:  "Category 2", checked: false},
+      { name:  "Category 3", checked: false},
+      { name:  "Category 4", checked: false},
+      { name:  "Category 5", checked: false},
+      { name:  "Category 6", checked: false},
+      { name:  "Category 7", checked: false},
+      { name:  "Category 8", checked: false},
+    ];
+
+    this.sciBranch = [
+      { name:  "Metric 1", checked: false},
+      { name:  "Metric 2", checked: false},
+      { name:  "Metric 3", checked: false},
+      { name:  "Metric 4", checked: false},
+      { name:  "Metric 5", checked: false},
+      { name:  "Metric 6", checked: false},
+      { name:  "Metric 7", checked: false},
+      { name:  "Metric 8", checked: false},
+    ];
+
+    this.impFac = { from: "", to: "" };  
+    this.accRate = { from: "", to: "" };  
 
     this.showSideSCIBr = true;
     this.showSideCate = true;
@@ -84,10 +113,10 @@ export class SuggesterComponent implements OnInit {
   }
 
   selectRow(r){
-  	this.results.forEach(x => {
-  		if(x !== r)
-        x.active = false;
-  	})
+  	// this.results.forEach(x => {
+  	// 	if(x !== r)
+   //      x.active = false;
+  	// })
   	r.active = !r.active;
 
   	// console.log(r)
@@ -95,6 +124,13 @@ export class SuggesterComponent implements OnInit {
 
   isRowActive(r){
   	return r.active;
+  }
+
+  clear(){
+    this.cat.forEach(x => x.checked = false)
+    this.sciBranch.forEach(x => x.checked = false)    
+    this.impFac = { from: "", to: "" }
+    this.accRate = { from: "", to: "" }
   }
 
 }

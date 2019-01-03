@@ -30,7 +30,7 @@
   </div>
 
   <div class="w-100 ctn-content">    
-    <div class="container ctn-route" [ngClass]="{'full-height': router.url ==='/'}">
+    <div class="container ctn-route">
       <router-outlet></router-outlet>
     </div>
   </div>
@@ -48,7 +48,7 @@
 
 <div class="side-menu rc l-r" [ngClass]="{open: menuO}">
   <div class="position-relative">
-    <div class="side-block">
+    <div class="side-block cp">
       <div class="side-block-item" (click)="openMenu()">
         <img class="main" src="assets/bl-1.png" />
         <img class="colored" src="assets/bl-1c.png" />
@@ -63,39 +63,37 @@
       </div>
     </div>
     <div class="side-heading rc text-center j-c">Suggester History</div>
-    <ng-scrollbar>
+    <!-- <ng-scrollbar> -->
       <div class="side-heading-content">
-        <div class="heading py-2"><span>15.06.2018</span></div>
-        <div class="side-heading-light rc">Search Word or Abstract</div>
-        <div class="heading py-2"><span>15.06.2018</span></div>
-        <div class="side-heading-light rc">Search Word or Abstract</div>
-        <div class="heading py-2"><span>15.06.2018</span></div>
-        <div class="side-heading-light rc mb-0">Search Word or Abstract</div>
-        <table class="table table-striped">
-          <tbody>
-            <tr>
-              <td>- Name (title) (1)</td>
-            </tr>
-            <tr>
-              <td>- Name (title) (2)</td>
-            </tr>
-            <tr>
-              <td>- Name (title) (3)</td>
-            </tr>
-          </tbody>
-        </table>
-        <div class="side-heading-light rc">
-          Detailed Search Results
-          <div class="shadow-text text-center">DETAILED SEARCH RESULT</div>
-          <button class="btn btn-sh2 btn-lg l-l float-right">Open in Suggester</button>
-          <div class="clearfix"></div>
+        <div class="mb-2" *ngFor="let item of items; let i = index;">
+          <div class="heading py-2"><span>{{item.date}}</span></div>
+          <div class="side-heading-light rc smh cp mb-0" (click)="selectItem(item)">{{item.n}}</div>
+          <table [hidden]="!item.active" class="table table-striped">
+            <tbody>
+              <tr>
+                <td>- Name (title) (1)</td>
+              </tr>
+              <tr>
+                <td>- Name (title) (2)</td>
+              </tr>
+              <tr>
+                <td>- Name (title) (3)</td>
+              </tr>
+            </tbody>
+          </table>
+          <div [hidden]="!item.active" class="side-heading-light rc">
+            Detailed Search Results
+            <div class="shadow-text text-center">DETAILED SEARCH RESULT</div>
+            <button class="btn btn-sh2 btn-lg l-l float-right">Open in Suggester</button>
+            <div class="clearfix"></div>
+          </div>
         </div>
+        <!-- <div class="heading py-2"><span>15.06.2018</span></div>
+        <div class="side-heading-light rc smh cp">Search Word or Abstract</div>
         <div class="heading py-2"><span>15.06.2018</span></div>
-        <div class="side-heading-light rc">Search Word or Abstract</div>
+        <div class="side-heading-light rc smh cp">Search Word or Abstract</div>
         <div class="heading py-2"><span>15.06.2018</span></div>
-        <div class="side-heading-light rc">Search Word or Abstract</div>
-        <div class="heading py-2"><span>15.06.2018</span></div>
-        <div class="side-heading-light rc mb-0">Search Word or Abstract</div>
+        <div class="side-heading-light rc smh cp mb-0">Search Word or Abstract</div>
         <table class="table table-striped">
           <tbody>
             <tr>
@@ -108,8 +106,44 @@
               <td>- Name (title) (3)</td>
             </tr>
           </tbody>
-        </table>
+        </table> -->
+        <!-- <div class="heading py-2"><span>15.06.2018</span></div>
+        <div class="side-heading-light rc smh cp">Search Word or Abstract</div>
+        <div class="heading py-2"><span>15.06.2018</span></div>
+        <div class="side-heading-light rc smh cp">Search Word or Abstract</div>
+        <div class="heading py-2"><span>15.06.2018</span></div>
+        <div class="side-heading-light rc smh cp mb-0">Search Word or Abstract</div>
+        <table class="table table-striped">
+          <tbody>
+            <tr>
+              <td>- Name (title) (1)</td>
+            </tr>
+            <tr>
+              <td>- Name (title) (2)</td>
+            </tr>
+            <tr>
+              <td>- Name (title) (3)</td>
+            </tr>
+          </tbody>
+        </table> -->
+        <!-- <div class="mb-2" *ngFor="let item of items2; let i = index;">
+          <div class="heading py-2"><span>{{item.date}}</span></div>
+          <div class="side-heading-light rc smh cp mb-0" (click)="selectItem(item)">{{item.n}}</div>
+          <table [hidden]="!item.active" class="table table-striped">
+            <tbody>
+              <tr>
+                <td>- Name (title) (1)</td>
+              </tr>
+              <tr>
+                <td>- Name (title) (2)</td>
+              </tr>
+              <tr>
+                <td>- Name (title) (3)</td>
+              </tr>
+            </tbody>
+          </table>
+        </div> -->
       </div>
-    </ng-scrollbar>
+    <!-- </ng-scrollbar> -->
   </div>
 </div>

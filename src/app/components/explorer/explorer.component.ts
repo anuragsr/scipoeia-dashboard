@@ -9,6 +9,12 @@ export class ExplorerComponent implements OnInit {
 	
 	results:any[];
   searchCriteria:any[];
+  disc:any[];
+  countries:any[];
+  lang:any[];
+  impFac:any;
+  accRate:any;
+
   showSideDiscipline:boolean;
   showSideCountries:boolean;
   showSideLanguage:boolean;
@@ -18,12 +24,14 @@ export class ExplorerComponent implements OnInit {
   constructor() {
     this.searchCriteria = [
       { 
-        str: "", 
+        str: "",
+        searchType: "",
         searchTypeOpts : [
           { id:1, name:'item 1' },
           { id:2, name:'item 2' },
           { id:2, name:'item 3' },
-        ]
+        ],
+        toDel: false
       }
     ];
 
@@ -43,20 +51,63 @@ export class ExplorerComponent implements OnInit {
     this.showSideLanguage = true;
     this.showSideImpactFactor = true;
     this.showSideAccRate = true;
+
+    this.disc = [
+      { name:  "Discipline 1", checked: false},
+      { name:  "Discipline 2", checked: false},
+      { name:  "Discipline 3", checked: false},
+      { name:  "Discipline 4", checked: false},
+      { name:  "Discipline 5", checked: false},
+      { name:  "Discipline 6", checked: false},
+      { name:  "Discipline 7", checked: false},
+      { name:  "Discipline 8", checked: false},
+    ];
+    this.countries = [
+      { name:  "Country / Region 1", checked: false},
+      { name:  "Country / Region 2", checked: false},
+      { name:  "Country / Region 3", checked: false},
+      { name:  "Country / Region 4", checked: false},
+      { name:  "Country / Region 5", checked: false},
+      { name:  "Country / Region 6", checked: false},
+      { name:  "Country / Region 7", checked: false},
+      { name:  "Country / Region 8", checked: false},
+    ];
+    this.lang = [
+      { name:  "English", checked: false},
+      { name:  "German", checked: false},
+      { name:  "French", checked: false},
+    ];
+    this.impFac = { from: "", to: "" };
+    this.accRate = { from: "", to: "" };
   }
 
   ngOnInit() {
   }
 
-  addSearchCriteria(){
-    this.searchCriteria.push({ 
-      str: "", 
-      searchTypeOpts : [
-        { id:1, name:'item 1' },
-        { id:2, name:'item 2' },
-        { id:2, name:'item 3' },
-      ]
-    });
+  addSearchCriteria(){    
+    
+    let arr = this.searchCriteria;
+    if(arr.length <= 3){
+      arr.push({ 
+        str: "",
+        searchType: "",
+        searchTypeOpts : [
+          { id:1, name:'item 1' },
+          { id:2, name:'item 2' },
+          { id:2, name:'item 3' },
+        ],
+        toDel: true
+      })
+    }else{
+      alert('A maximum of 4 criteria is allowed.')
+    }
+
+  }
+
+  removeSearchCriteria(c){
+    let arr = this.searchCriteria;
+    // console.log(arr.indexOf(c))
+    arr.splice(arr.indexOf(c), 1);
   }
 
   toggleSideDiscipline(){
@@ -85,10 +136,10 @@ export class ExplorerComponent implements OnInit {
   }
 
   selectRow(r){
-  	this.results.forEach(x => {
-      if(x !== r)
-  		  x.active = false;
-  	})
+  	// this.results.forEach(x => {
+   //    if(x !== r)
+  	// 	  x.active = false;
+  	// })
 
   	r.active = !r.active;
 
@@ -97,6 +148,14 @@ export class ExplorerComponent implements OnInit {
 
   isRowActive(r){
   	return r.active;
+  }
+
+  clear(){
+    this.disc.forEach(x => x.checked = false)
+    this.countries.forEach(x => x.checked = false)
+    this.lang.forEach(x => x.checked = false)
+    this.impFac = { from: "", to: "" }
+    this.accRate = { from: "", to: "" }
   }
 
 }

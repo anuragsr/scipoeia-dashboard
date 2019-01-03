@@ -1,13 +1,13 @@
 <div class="heading">	
-	Scipoeia&nbsp;&nbsp;>&nbsp;&nbsp;<span class="l-r">Compare</span>
+	Scipoeia&nbsp;&nbsp;>&nbsp;&nbsp;Suggester&nbsp;&nbsp;>&nbsp;&nbsp;<span class="l-r">Compare</span>
 </div>
-<div class="back mt-2">
+<!-- <div class="back mt-2">
 	<a href="#" class="l-r font-weight-bold">< Back</a>
-</div>
+</div> -->
 <div class="row mt-4 special">
 	<div class="col-md-4">
 		<div class="rc side-heading-ctn">
-			<div class="rc side-heading l-l" (click)="toggleSideCompSet()">
+			<div class="rc side-heading l-l cp" (click)="toggleSideCompSet()">
 				<div>					
 					Comparision Settings
 				</div>
@@ -20,17 +20,17 @@
 				<div class="input-ctn l-l">
 					<div class="j-sb mb-2">
 						<span>Year From</span>
-						<input type="text" class="form-control" />
+						<input type="text" [(ngModel)]="compSet.from" class="form-control" />
 	        </div>
 	        <div class="j-sb">
 						<span>Year To</span>
-						<input type="text" class="form-control" />
+						<input type="text" [(ngModel)]="compSet.to" class="form-control" />
 	        </div>
 	      </div>
 			</div>
 		</div>
 		<div class="rc side-heading-ctn">			
-			<div class="rc side-heading l-l" (click)="toggleSideSelJournal()">
+			<div class="rc side-heading l-l cp" (click)="toggleSideSelJournal()">
 				<div>					
 					Select Journals
 				</div>
@@ -40,19 +40,15 @@
 				</span>
 			</div>
 			<div class="side-heading-content" [hidden]="!showSideSelJournal">
-				<input type="text" class="form-control mb-2" placeholder="Journal Search">
-				<div class="rc side-heading-light j-sb">
-					<span class="l-l">Result 1</span>
-					<span><img src="assets/cross.png" /></span>
-				</div>
-				<div class="rc side-heading-light j-sb">
-					<span class="l-l">Result 2</span>
-					<span><img src="assets/cross.png" /></span>
-				</div>
+				<input type="text" [(ngModel)]="selJour.str" class="form-control mb-2" placeholder="Journal Search">
+				<div class="rc side-heading-light j-sb" *ngFor="let r of selJour.res; let i = index;">
+					<span class="l-l">{{r.name}}</span>
+					<span class="cp" (click)="clearRes(r)"><img src="assets/cross.png" /></span>
+				</div>				
 			</div>
 		</div>
 		<div class="rc side-heading-ctn">
-			<div class="rc side-heading l-l" (click)="toggleSideSelCate()">
+			<div class="rc side-heading l-l cp" (click)="toggleSideSelCate()">
 				<div>					
 					Select Categories
 				</div>
@@ -63,7 +59,11 @@
 			</div>
 			<ng-scrollbar [hidden]="!showSideSelCate">
 				<div class="side-heading-content fh l-l" [hidden]="!showSideSelCate">
-					<div class="custom-control custom-radio">
+					<div *ngFor="let c of cat; let i = index;" class="custom-control custom-checkbox mb-2 cat">
+					  <input [(ngModel)]="c.checked" type="checkbox" class="custom-control-input" id="checkCat{{i}}">
+					  <label class="custom-control-label" for="checkCat{{i}}">&nbsp;&nbsp;{{c.name}}</label>
+					</div>					
+					<!-- <div class="custom-control custom-radio">
 					  <input type="radio" id="cr1" name="customRadioInline2" class="custom-control-input">
 					  <label class="custom-control-label" for="cr1">Category 1</label>
 					</div>
@@ -94,12 +94,12 @@
 					<div class="custom-control custom-radio">
 					  <input type="radio" id="cr8" name="customRadioInline2" class="custom-control-input">
 					  <label class="custom-control-label" for="cr8">Category 8</label>
-					</div>
+					</div> -->
 				</div>
 	    </ng-scrollbar>
 		</div>
-		<div class="rc side-heading-ctn txt">
-			<div class="rc side-heading l-l" (click)="toggleSideAccRate()">
+		<div class="rc side-heading-ctn">
+			<div class="rc side-heading l-l cp" (click)="toggleSideAccRate()">
 				<div>					
 					Acceptance Rate
 				</div>
@@ -108,8 +108,13 @@
 					<img *ngIf="!showSideAccRate" src="assets/arrow-down.png" />
 				</span>
 			</div>
-			<div class="side-heading-content l-l" [hidden]="!showSideAccRate">
-				<div class="txt-ctn">					
+	    <ng-scrollbar [hidden]="!showSideAccRate">
+				<div class="side-heading-content l-l fh" [hidden]="!showSideAccRate">				
+					<div *ngFor="let c of accRate; let i = index;" class="custom-control custom-checkbox mb-2 cat">
+					  <input [(ngModel)]="c.checked" type="checkbox" class="custom-control-input" id="checkAcc{{i}}">
+					  <label class="custom-control-label" for="checkAcc{{i}}">&nbsp;&nbsp;{{c.name}}</label>
+					</div>			
+				<!-- <div class="txt-ctn">					
 					Metric 1
 				</div>
 				<div class="txt-ctn">					
@@ -120,11 +125,12 @@
 				</div>
 				<div class="txt-ctn">					
 					Metric 4
+				</div> -->
 				</div>
-			</div>
+	    </ng-scrollbar>
 		</div>
 		<div class="btn-ctn j-sb">
-			<button class="btn btn-outline-sh1 btn-lg l-l">Clear</button>
+			<button class="btn btn-outline-sh1 btn-lg l-l" (click)="clear()">Clear</button>
 			<button class="btn btn-outline-sh1 btn-lg l-l">Submit</button>
 			<button class="btn btn-sh2 btn-lg l-l">Save</button>
 		</div>
@@ -208,11 +214,13 @@
 			<div class="gr-ctn j-sb my-4 l-r gr-ctn1 px-4">
 				<div>					
 					<span>Value 1</span><br/><br/>
-					<img src="assets/graph1.png" />
+					<canvas id="chart1" width="320" height="115"></canvas>
+					<!-- <img src="assets/graph1.png" /> -->
 				</div>
 				<div>					
 					<span>Value 2</span><br/><br/>
-					<img src="assets/graph1.png" />
+					<canvas id="chart2" width="320" height="115"></canvas>
+					<!-- <img src="assets/graph1.png" /> -->
 				</div>
 			</div>
 			<table class="table table-striped">
@@ -263,7 +271,8 @@
 			</div>
 			<div class="gr-ctn j-c my-4 l-r">
 				<span>Word of M3 per Year</span>
-				<img src="assets/graph2.png" />
+				<canvas id="chart3" width="450" height="150"></canvas>			
+				<!-- <img src="assets/graph2.png" /> -->
 			</div>
 			<table class="table table-striped">
 			  <tbody>

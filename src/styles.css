@@ -58,9 +58,9 @@ input[type=number]:focus,
   font-family: 'lato-r';
 }
 
-*{
+/**{
   cursor: url(assets/cursor.svg), auto !important;	
-}
+}*/
 
 body{
 	background: #edf3f6;
@@ -121,7 +121,8 @@ body{
 
 .ctn-content{
 	background: url(assets/bg-main.jpg) no-repeat center;
-	background-size: cover;	
+	/*background-size: contain;	*/
+	background-size: 100%;	
   background-position: 0% 0%;
 }
 
@@ -385,4 +386,13 @@ body{
 
 .bootstrap path{
 	fill: #3a6e7b !important;
+}
+
+.custom-checkbox.cat .custom-control-label::before{
+	border-radius: 50%;
+}
+
+.custom-checkbox.cat .custom-control-input:checked ~ .custom-control-label::after{
+	background-image:	url(assets/circ.png) !important;
+  background-size: 40% !important;
 }
