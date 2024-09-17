@@ -15,6 +15,10 @@ import { CheckedResultsPipe } from './pipes/checked-results.pipe';
 import { TagInputModule } from 'ngx-chips';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations'; // this is needed!
 import { ReactiveFormsModule } from '@angular/forms';
+import { HeaderComponent } from './components/header/header.component';
+import { FooterComponent } from './components/footer/footer.component';
+import { SidebarComponent } from './components/sidebar/sidebar.component';
+import { ClickOutsideModule } from 'ng-click-outside';
 
 @NgModule({
   declarations: [
@@ -26,6 +30,9 @@ import { ReactiveFormsModule } from '@angular/forms';
     SuggesterComponent,
     HomeComponent,
     CheckedResultsPipe,
+    HeaderComponent,
+    FooterComponent,
+    SidebarComponent,
   ],
   imports: [
     BrowserModule,
@@ -34,7 +41,8 @@ import { ReactiveFormsModule } from '@angular/forms';
     NgScrollbarModule,
     TagInputModule, 
     BrowserAnimationsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    ClickOutsideModule
   ],
   providers: [],
   bootstrap: [AppComponent]

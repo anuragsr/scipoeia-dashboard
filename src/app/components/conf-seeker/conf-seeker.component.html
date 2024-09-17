@@ -1,170 +1,109 @@
-<div class="heading">	
-	Scipoeia&nbsp;&nbsp;>&nbsp;&nbsp;<span class="l-r">Conf Seeker</span>	
-</div>
-<!-- <div class="back mt-2">
-	<a href="#" class="l-r font-weight-bold">< Back</a>
-</div> -->
-<div class="heading mt-4">
-	<span class="l-r">Search by Keyword</span>
-</div>
-<div class="input-group search-field col-md-8 px-0">
-  <input type="text" class="form-control" placeholder="Typing text..." />
-  <div class="input-group-append">
-    <button class="px-2 py-0 btn btn-outline-none" type="button"><img src="assets/search-button.png"></button>
-  </div>
-</div>
-<div class="row mt-4 special">
-	<div class="col-md-4">
-		<div class="rc side-heading-ctn">
-			<div class="rc side-heading l-l cp" (click)="toggleSideCountries()">
-				<div>
-					<img src="assets/planet-earth.png" />Country / Region
-				</div>
-				<span class="float-right">					
-					<img *ngIf="showSideCountries" src="assets/arrow-up.png" />
-					<img *ngIf="!showSideCountries" src="assets/arrow-down.png" />
-				</span>
-			</div>
-	    <ng-scrollbar [hidden]="!showSideCountries">
-				<div class="side-heading-content fh l-l" [hidden]="!showSideCountries">
-					<div *ngFor="let c of countries; let i = index;" class="custom-control custom-checkbox mb-2 cat">
-					  <input [(ngModel)]="c.checked" type="checkbox" class="custom-control-input" id="checkCountries{{i}}">
-					  <label class="custom-control-label" for="checkCountries{{i}}">&nbsp;&nbsp;{{c.name}}</label>
-					</div>
-<!-- 					<div class="custom-control custom-radio">
-					  <input type="radio" id="c1" value="Country / Region 1" name="cr1" class="custom-control-input">
-					  <label class="custom-control-label" for="c1">Country / Region 1</label>
-					</div> -->
-					<!-- 
-					<div class="custom-control custom-radio">
-					  <input type="radio" id="c2" [(ngModel)]="" value="Country / Region 2" name="cr2" class="custom-control-input">
-					  <label class="custom-control-label" for="c2">Country / Region 2</label>
-					</div>
-					<div class="custom-control custom-radio">
-					  <input type="radio" id="c3" name="cr1" class="custom-control-input">
-					  <label class="custom-control-label" for="c3">Country / Region 3</label>
-					</div>
-					<div class="custom-control custom-radio">
-					  <input type="radio" id="c4" name="cr1" class="custom-control-input">
-					  <label class="custom-control-label" for="c4">Country / Region 4</label>
-					</div>
-					<div class="custom-control custom-radio">
-					  <input type="radio" id="c5" name="cr1" class="custom-control-input">
-					  <label class="custom-control-label" for="c5">Country / Region 5</label>
-					</div>
-					<div class="custom-control custom-radio">
-					  <input type="radio" id="c6" name="cr1" class="custom-control-input">
-					  <label class="custom-control-label" for="c6">Country / Region 6</label>
-					</div>
-					<div class="custom-control custom-radio">
-					  <input type="radio" id="c7" name="cr1" class="custom-control-input">
-					  <label class="custom-control-label" for="c7">Country / Region 7</label>
-					</div>
-					<div class="custom-control custom-radio">
-					  <input type="radio" id="c8" name="cr1" class="custom-control-input">
-					  <label class="custom-control-label" for="c8">Country / Region 8</label>
-					</div> -->
-				</div>
-	    </ng-scrollbar>
+<app-header></app-header>
+<div class="w-100 ctn-content">
+  <div class="container ctn-route">
+		<div class="heading">	
+			Scipoeia&nbsp;&nbsp;>&nbsp;&nbsp;<span class="l-r">Conf Seeker</span>	
 		</div>
-		<div class="rc side-heading-ctn">
-			<div class="rc side-heading l-l cp" (click)="toggleSidePub()">
-				<div>
-					<img src="assets/open-book.png" />Publishers
-				</div>
-				<span class="float-right">					
-					<img *ngIf="showSidePub" src="assets/arrow-up.png" />
-					<img *ngIf="!showSidePub" src="assets/arrow-down.png" />
-				</span>
-			</div>
-	    <ng-scrollbar [hidden]="!showSidePub">
-				<div class="side-heading-content fh l-l" [hidden]="!showSidePub">
-					<div *ngFor="let c of pub; let i = index;" class="custom-control custom-checkbox mb-2 cat">
-					  <input [(ngModel)]="c.checked" type="checkbox" class="custom-control-input" id="checkPub{{i}}">
-					  <label class="custom-control-label" for="checkPub{{i}}">&nbsp;&nbsp;{{c.name}}</label>
-					</div>
-					<!-- <div class="custom-control custom-radio">
-					  <input type="radio" id="p1" name="customRadioInline2" class="custom-control-input">
-					  <label class="custom-control-label" for="p1">Publisher 1</label>
-					</div>
-					<div class="custom-control custom-radio">
-					  <input type="radio" id="p2" name="customRadioInline2" class="custom-control-input">
-					  <label class="custom-control-label" for="p2">Publisher 2</label>
-					</div>
-					<div class="custom-control custom-radio">
-					  <input type="radio" id="p3" name="customRadioInline2" class="custom-control-input">
-					  <label class="custom-control-label" for="p3">Publisher 3</label>
-					</div>
-					<div class="custom-control custom-radio">
-					  <input type="radio" id="p4" name="customRadioInline2" class="custom-control-input">
-					  <label class="custom-control-label" for="p4">Publisher 4</label>
-					</div>
-					<div class="custom-control custom-radio">
-					  <input type="radio" id="p5" name="customRadioInline2" class="custom-control-input">
-					  <label class="custom-control-label" for="p5">Publisher 5</label>
-					</div>
-					<div class="custom-control custom-radio">
-					  <input type="radio" id="p6" name="customRadioInline2" class="custom-control-input">
-					  <label class="custom-control-label" for="p6">Publisher 6</label>
-					</div>
-					<div class="custom-control custom-radio">
-					  <input type="radio" id="p7" name="customRadioInline2" class="custom-control-input">
-					  <label class="custom-control-label" for="p7">Publisher 7</label>
-					</div>
-					<div class="custom-control custom-radio">
-					  <input type="radio" id="p8" name="customRadioInline2" class="custom-control-input">
-					  <label class="custom-control-label" for="p8">Publisher 8</label>
-					</div> -->
-				</div>
-	    </ng-scrollbar>
+		<div class="heading mt-4">
+			<span class="l-r">Search by Keyword</span>
 		</div>
-		<div class="rc side-heading-ctn">
-			<div class="rc side-heading l-l cp" (click)="toggleSideConfTime()">
-				<div>
-					<img src="assets/chronometer.png" />Conf Time (?)
+		<div class="input-group search-field col-md-8 px-0">
+		  <input type="text" class="form-control" placeholder="Typing text..." />
+		  <div class="input-group-append">
+		    <button class="px-2 py-0 btn btn-outline-none" type="button"><img src="assets/search-button.png"></button>
+		  </div>
+		</div>
+		<div class="row mt-4 special">
+			<div class="col-md-4">
+				<div class="rc side-heading-ctn">
+					<div class="rc side-heading l-l cp" (click)="toggleSideCountries()">
+						<div>
+							<img src="assets/planet-earth.png" />Country / Region
+						</div>
+						<span class="float-right">					
+							<img *ngIf="showSideCountries" src="assets/arrow-up.png" />
+							<img *ngIf="!showSideCountries" src="assets/arrow-down.png" />
+						</span>
+					</div>
+			    <ng-scrollbar [hidden]="!showSideCountries">
+						<div class="side-heading-content fh l-l" [hidden]="!showSideCountries">
+							<div *ngFor="let c of countries; let i = index;" class="custom-control custom-checkbox mb-2 cat">
+							  <input [(ngModel)]="c.checked" type="checkbox" class="custom-control-input" id="checkCountries{{i}}">
+							  <label class="custom-control-label" for="checkCountries{{i}}">&nbsp;&nbsp;{{c.name}}</label>
+							</div>
+						</div>
+			    </ng-scrollbar>
 				</div>
-				<span class="float-right">					
-					<img *ngIf="showSideConfTime" src="assets/arrow-up.png" />
-					<img *ngIf="!showSideConfTime" src="assets/arrow-down.png" />
-				</span>
-			</div>
-			<div class="side-heading-content" [hidden]="!showSideConfTime">
-				<div class="select-ctn">
-					<img src="assets/arrow-select.png" />
-					<select class="form-control">
-						<option value="">Dropdown Menu 1</option>
-					</select>
-        </div>
-				<div class="select-ctn">
-					<img src="assets/arrow-select.png" />
-					<select class="form-control">
-						<option value="">Dropdown Menu 2</option>
-					</select>
+				<div class="rc side-heading-ctn">
+					<div class="rc side-heading l-l cp" (click)="toggleSidePub()">
+						<div>
+							<img src="assets/open-book.png" />Publishers
+						</div>
+						<span class="float-right">					
+							<img *ngIf="showSidePub" src="assets/arrow-up.png" />
+							<img *ngIf="!showSidePub" src="assets/arrow-down.png" />
+						</span>
+					</div>
+			    <ng-scrollbar [hidden]="!showSidePub">
+						<div class="side-heading-content fh l-l" [hidden]="!showSidePub">
+							<div *ngFor="let c of pub; let i = index;" class="custom-control custom-checkbox mb-2 cat">
+							  <input [(ngModel)]="c.checked" type="checkbox" class="custom-control-input" id="checkPub{{i}}">
+							  <label class="custom-control-label" for="checkPub{{i}}">&nbsp;&nbsp;{{c.name}}</label>
+							</div>
+						</div>
+			    </ng-scrollbar>
 				</div>
-				<div class="select-ctn">
-					<img src="assets/arrow-select.png" />
-					<select class="form-control">
-						<option value="">Dropdown Menu 3</option>
-					</select>
+				<div class="rc side-heading-ctn">
+					<div class="rc side-heading l-l cp" (click)="toggleSideConfTime()">
+						<div>
+							<img src="assets/chronometer.png" />Conf Time (?)
+						</div>
+						<span class="float-right">					
+							<img *ngIf="showSideConfTime" src="assets/arrow-up.png" />
+							<img *ngIf="!showSideConfTime" src="assets/arrow-down.png" />
+						</span>
+					</div>
+					<div class="side-heading-content" [hidden]="!showSideConfTime">
+						<div class="select-ctn">
+							<img src="assets/arrow-select.png" />
+							<select class="form-control">
+								<option value="">Dropdown Menu 1</option>
+							</select>
+		        </div>
+						<div class="select-ctn">
+							<img src="assets/arrow-select.png" />
+							<select class="form-control">
+								<option value="">Dropdown Menu 2</option>
+							</select>
+						</div>
+						<div class="select-ctn">
+							<img src="assets/arrow-select.png" />
+							<select class="form-control">
+								<option value="">Dropdown Menu 3</option>
+							</select>
+						</div>
+					</div>
+				</div>
+				<div class="btn-ctn j-sb">
+					<button class="btn btn-outline-sh1 btn-lg l-l" (click)="clear()">Cancel</button>
+					<button class="btn btn-sh2 btn-lg l-l">Submit</button>
 				</div>
 			</div>
-		</div>
-		<div class="btn-ctn j-sb">
-			<button class="btn btn-outline-sh1 btn-lg l-l" (click)="clear()">Cancel</button>
-			<button class="btn btn-sh2 btn-lg l-l">Submit</button>
-		</div>
-	</div>
-	<div class="col-md-8 l-l ctn-main">
-		<div class="rc side-heading j-sb">
-			<span>Publisher</span>
-			<span>Conf. Details</span>
-			<span>Deadline</span>
-		</div>
-		<div class="rc side-heading-light j-sb l-r" *ngFor="let r of results; let i = index;">
-			<span>{{ r.p }}</span>
-			<span>{{ r.d }}</span>
-			<span>{{ r.dl }}</span>
+			<div class="col-md-8 l-l ctn-main">
+				<div class="rc side-heading j-sb">
+					<span>Publisher</span>
+					<span>Conf. Details</span>
+					<span>Deadline</span>
+				</div>
+				<div class="rc side-heading-light j-sb l-r" *ngFor="let r of results; let i = index;">
+					<span>{{ r.p }}</span>
+					<span>{{ r.d }}</span>
+					<span>{{ r.dl }}</span>
+				</div>
+			</div>
 		</div>
 	</div>
 </div>
+<app-footer></app-footer>
+<app-sidebar></app-sidebar>
 

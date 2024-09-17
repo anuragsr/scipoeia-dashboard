@@ -1,0 +1,13 @@
+.nav-item a{
+	opacity: .8;
+	text-decoration: none;
+  font-family: 'mont-l';	
+	color: white;
+	margin-left: 3vw;
+	font-size: 1vw;
+	transition: opacity .5s;
+}
+
+.nav-item a:hover{	
+	opacity: 1;
+}

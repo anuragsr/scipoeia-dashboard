@@ -1,0 +1,44 @@
+<div class="side-menu rc l-r" (clickOutside)="closeMenu()" [ngClass]="{open: menuO}">
+  <div class="position-relative">
+    <div class="side-block cp">
+      <div class="side-block-item" (click)="openMenu()">
+        <img class="main" src="assets/bl-1.png" />
+        <img class="colored" src="assets/bl-1c.png" />
+      </div>
+      <div class="side-block-item" (click)="openMenu()">
+        <img class="main" src="assets/bl-2.png" />
+        <img class="colored" src="assets/bl-2c.png" />
+      </div>
+      <div class="side-block-item" (click)="openMenu()">
+        <img class="main" src="assets/bl-3.png" />
+        <img class="colored" src="assets/bl-3c.png" />
+      </div>
+    </div>
+    <div class="side-heading rc text-center j-c">Suggester History</div>
+    <div class="side-heading-content">
+      <div class="mb-2" *ngFor="let item of items; let i = index;">
+        <div class="heading py-2"><span>{{item.date}}</span></div>
+        <div class="side-heading-light rc smh cp mb-0" (click)="selectItem(item)">{{item.n}}</div>
+        <table [hidden]="!item.active" class="table table-striped">
+          <tbody>
+            <tr>
+              <td>- Name (title) (1)</td>
+            </tr>
+            <tr>
+              <td>- Name (title) (2)</td>
+            </tr>
+            <tr>
+              <td>- Name (title) (3)</td>
+            </tr>
+          </tbody>
+        </table>
+        <div [hidden]="!item.active" class="side-heading-light rc">
+          Detailed Search Results
+          <div class="shadow-text text-center">DETAILED SEARCH RESULT</div>
+          <button class="btn btn-sh2 btn-lg l-l float-right">Open in Suggester</button>
+          <div class="clearfix"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

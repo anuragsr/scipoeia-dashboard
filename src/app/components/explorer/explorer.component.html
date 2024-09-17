@@ -1,310 +1,238 @@
-<div class="heading">	
-	Scipoeia&nbsp;&nbsp;>&nbsp;&nbsp;<span class="l-r">Explorer</span>
-</div>
-<!-- <div class="back mt-2">
-	<a href="#" class="l-r font-weight-bold">< Back</a>
-</div> -->
-<h4 class="heading l-l">Explore over 20,000 journals</h4>
-<div class="heading mt-4">
-	<span class="l-r">Search for Journal or Book Title</span>
-</div>
-<div class="input-group search-field px-0" *ngFor="let s of searchCriteria; let i = index;">
-  <input type="text" class="form-control col-md-5" placeholder="Typing text..." [(ngModel)]="s.str"/>
-  <div class="select-ctn">
-		<img src="assets/arrow-down-bl.png" />
-	  <select class="form-control" [(ngModel)]="s.searchType" name="searchType">
-			<option hidden value="" disabled selected>Search Type</option>
-			<option *ngFor="let opt of s.searchTypeOpts" [value]="opt.id">{{ opt.name }}</option>
-		</select>
-  </div>
-  <div class="input-group-append">
-    <button class="ml-2 px-2 py-0 btn btn-outline-none" type="button"><img src="assets/search-button.png" /></button>
-  </div>
-  <div class="j-sb ml-2 cp" [hidden]="!s.toDel" (click)="removeSearchCriteria(s)">
-    <img src="assets/plus-icon-cross.png" />
-  </div>
-</div>
-<div class="search-cri-btn l-l cp" (click)="addSearchCriteria()">
-	<img src="assets/plus-icon.png" />&nbsp;&nbsp;Add search criteria
-</div>
-<div class="row mt-4 special">
-	<div class="col-md-4">
-		<a routerLink="/compare" class="btn-link">			
-			<button class="btn btn-sh2 btn-block l-l btn-icon">
-				<img class="o" src="assets/judge.png" />
-				<img class="c" src="assets/judge-c.png" />&nbsp;&nbsp;Compare
-			</button>
-		</a>
+<app-header></app-header>
+<div class="w-100 ctn-content">
+  <div class="container ctn-route">
+		<div class="heading">
+			Scipoeia&nbsp;&nbsp;>&nbsp;&nbsp;<span class="l-r">Explorer</span>
+		</div>
+		<h4 class="heading l-l">Explore over 20,000 journals</h4>
+		<div class="heading mt-4">
+			<span class="l-r">Search for Journal or Book Title</span>
+		</div>
+		<div class="input-group search-field px-0" *ngFor="let s of searchCriteria; let i = index;">
+		  <input type="text" class="form-control col-md-5" placeholder="Typing text..." [(ngModel)]="s.str"/>
+		  <div class="select-ctn">
+				<img src="assets/arrow-down-bl.png" />
+			  <select class="form-control" [(ngModel)]="s.searchType" name="searchType">
+					<option hidden value="" disabled selected>Search Type</option>
+					<option *ngFor="let opt of s.searchTypeOpts" [value]="opt.id">{{ opt.name }}</option>
+				</select>
+		  </div>
+		  <div class="input-group-append">
+		    <button class="ml-2 px-2 py-0 btn btn-outline-none" type="button"><img src="assets/search-button.png" /></button>
+		  </div>
+		  <div class="j-sb ml-2 cp" [hidden]="!s.toDel" (click)="removeSearchCriteria(s)">
+		    <img src="assets/plus-icon-cross.png" />
+		  </div>
+		</div>
+		<div class="search-cri-btn l-l cp" (click)="addSearchCriteria()">
+			<img src="assets/plus-icon.png" />&nbsp;&nbsp;Add search criteria
+		</div>
+		<div class="row mt-4 special">
+			<div class="col-md-4">
+				<a routerLink="/compare" class="btn-link">			
+					<button class="btn btn-sh2 btn-block l-l btn-icon">
+						<img class="o" src="assets/judge.png" />
+						<img class="c" src="assets/judge-c.png" />&nbsp;&nbsp;Compare
+					</button>
+				</a>
 
-		<div class="refine-search l-r">
-			Refine your search
-		</div>
+				<div class="refine-search l-r">
+					Refine your search
+				</div>
 
-		<div class="rc side-heading-ctn">
-			<div class="rc side-heading l-l cp" (click)="toggleSideDiscipline()">
-				<div>					
-					<img src="assets/idea.png" />Discipline
+				<div class="rc side-heading-ctn">
+					<div class="rc side-heading l-l cp" (click)="toggleSideDiscipline()">
+						<div>					
+							<img src="assets/idea.png" />Discipline
+						</div>
+						<span class="float-right">					
+							<img *ngIf="showSideDiscipline" src="assets/arrow-up.png" />
+							<img *ngIf="!showSideDiscipline" src="assets/arrow-down.png" />
+						</span>
+					</div>
+			    <ng-scrollbar [hidden]="!showSideDiscipline">
+						<div class="side-heading-content fh l-l" [hidden]="!showSideDiscipline">
+							<div *ngFor="let c of disc; let i = index;" class="custom-control custom-checkbox mb-2 cat">
+							  <input [(ngModel)]="c.checked" type="checkbox" class="custom-control-input" id="checkDisc{{i}}">
+							  <label class="custom-control-label" for="checkDisc{{i}}">&nbsp;&nbsp;{{c.name}}</label>
+							</div>
+						</div>
+			    </ng-scrollbar>
 				</div>
-				<span class="float-right">					
-					<img *ngIf="showSideDiscipline" src="assets/arrow-up.png" />
-					<img *ngIf="!showSideDiscipline" src="assets/arrow-down.png" />
-				</span>
-			</div>
-	    <ng-scrollbar [hidden]="!showSideDiscipline">
-				<div class="side-heading-content fh l-l" [hidden]="!showSideDiscipline">
-					<div *ngFor="let c of disc; let i = index;" class="custom-control custom-checkbox mb-2 cat">
-					  <input [(ngModel)]="c.checked" type="checkbox" class="custom-control-input" id="checkDisc{{i}}">
-					  <label class="custom-control-label" for="checkDisc{{i}}">&nbsp;&nbsp;{{c.name}}</label>
+				<div class="rc side-heading-ctn">
+					<div class="rc side-heading l-l cp" (click)="toggleSideCountries()">
+						<div>					
+							<img src="assets/planet-earth.png" />Country / Region
+						</div>
+						<span class="float-right">					
+							<img *ngIf="showSideCountries" src="assets/arrow-up.png" />
+							<img *ngIf="!showSideCountries" src="assets/arrow-down.png" />
+						</span>
 					</div>
-					<!-- <div class="custom-control custom-radio">
-					  <input type="radio" id="c1" name="customRadioInline1" class="custom-control-input">
-					  <label class="custom-control-label" for="c1">Discipline 1</label>
-					</div>
-					<div class="custom-control custom-radio">
-					  <input type="radio" id="c2" name="customRadioInline1" class="custom-control-input">
-					  <label class="custom-control-label" for="c2">Discipline 2</label>
-					</div>
-					<div class="custom-control custom-radio">
-					  <input type="radio" id="c3" name="customRadioInline1" class="custom-control-input">
-					  <label class="custom-control-label" for="c3">Discipline 3</label>
-					</div>
-					<div class="custom-control custom-radio">
-					  <input type="radio" id="c4" name="customRadioInline1" class="custom-control-input">
-					  <label class="custom-control-label" for="c4">Discipline 4</label>
-					</div>
-					<div class="custom-control custom-radio">
-					  <input type="radio" id="c5" name="customRadioInline1" class="custom-control-input">
-					  <label class="custom-control-label" for="c5">Discipline 5</label>
-					</div>
-					<div class="custom-control custom-radio">
-					  <input type="radio" id="c6" name="customRadioInline1" class="custom-control-input">
-					  <label class="custom-control-label" for="c6">Discipline 6</label>
-					</div>
-					<div class="custom-control custom-radio">
-					  <input type="radio" id="c7" name="customRadioInline1" class="custom-control-input">
-					  <label class="custom-control-label" for="c7">Discipline 7</label>
-					</div>
-					<div class="custom-control custom-radio">
-					  <input type="radio" id="c8" name="customRadioInline1" class="custom-control-input">
-					  <label class="custom-control-label" for="c8">Discipline 8</label>
-					</div> -->
+			    <ng-scrollbar [hidden]="!showSideCountries">
+						<div class="side-heading-content fh l-l" [hidden]="!showSideCountries">
+							<div *ngFor="let c of countries; let i = index;" class="custom-control custom-checkbox mb-2 cat">
+							  <input [(ngModel)]="c.checked" type="checkbox" class="custom-control-input" id="checkCty{{i}}">
+							  <label class="custom-control-label" for="checkCty{{i}}">&nbsp;&nbsp;{{c.name}}</label>
+							</div>
+						</div>
+			    </ng-scrollbar>
 				</div>
-	    </ng-scrollbar>
-		</div>
-		<div class="rc side-heading-ctn">
-			<div class="rc side-heading l-l cp" (click)="toggleSideCountries()">
-				<div>					
-					<img src="assets/planet-earth.png" />Country / Region
+				<div class="rc side-heading-ctn">
+					<div class="rc side-heading l-l cp" (click)="toggleSideLanguage()">
+						<div>					
+							<img src="assets/translate.png" />Language
+						</div>
+						<span class="float-right">					
+							<img *ngIf="showSideLanguage" src="assets/arrow-up.png" />
+							<img *ngIf="!showSideLanguage" src="assets/arrow-down.png" />
+						</span>
+					</div>			
+			    <ng-scrollbar [hidden]="!showSideLanguage">
+						<div class="side-heading-content l-l" [hidden]="!showSideLanguage">
+							<div *ngFor="let c of lang; let i = index;" class="custom-control custom-checkbox mb-2 cat">
+							  <input [(ngModel)]="c.checked" type="checkbox" class="custom-control-input" id="checkLang{{i}}">
+							  <label class="custom-control-label" for="checkLang{{i}}">&nbsp;&nbsp;{{c.name}}</label>
+							</div>
+						</div>
+			    </ng-scrollbar>
 				</div>
-				<span class="float-right">					
-					<img *ngIf="showSideCountries" src="assets/arrow-up.png" />
-					<img *ngIf="!showSideCountries" src="assets/arrow-down.png" />
-				</span>
-			</div>
-	    <ng-scrollbar [hidden]="!showSideCountries">
-				<div class="side-heading-content fh l-l" [hidden]="!showSideCountries">
-					<div *ngFor="let c of countries; let i = index;" class="custom-control custom-checkbox mb-2 cat">
-					  <input [(ngModel)]="c.checked" type="checkbox" class="custom-control-input" id="checkCty{{i}}">
-					  <label class="custom-control-label" for="checkCty{{i}}">&nbsp;&nbsp;{{c.name}}</label>
-					</div>					
-					<!-- <div class="custom-control custom-radio">
-					  <input type="radio" id="cr1" name="customRadioInline2" class="custom-control-input">
-					  <label class="custom-control-label" for="cr1">Country / Region 1</label>
+				<div class="rc side-heading-ctn">
+					<div class="rc side-heading l-l cp" (click)="toggleSideImpactFactor()">
+						<div>					
+							<img src="assets/punch.png" />Impact Factor
+						</div>
+						<span class="float-right">					
+							<img *ngIf="showSideImpactFactor" src="assets/arrow-up.png" />
+							<img *ngIf="!showSideImpactFactor" src="assets/arrow-down.png" />
+						</span>
 					</div>
-					<div class="custom-control custom-radio">
-					  <input type="radio" id="cr2" name="customRadioInline2" class="custom-control-input">
-					  <label class="custom-control-label" for="cr2">Country / Region 2</label>
+					<div class="side-heading-content" [hidden]="!showSideImpactFactor">
+						<div class="input-ctn l-l">
+							<div class="j-sb mb-2">
+								<span>From</span>
+								<input type="text" [(ngModel)]="impFac.from" class="form-control" />
+			        </div>
+			        <div class="j-sb">
+								<span>To</span>
+								<input type="text" [(ngModel)]="impFac.to" class="form-control" />
+			        </div>
+			      </div>
 					</div>
-					<div class="custom-control custom-radio">
-					  <input type="radio" id="cr3" name="customRadioInline2" class="custom-control-input">
-					  <label class="custom-control-label" for="cr3">Country / Region 3</label>
-					</div>
-					<div class="custom-control custom-radio">
-					  <input type="radio" id="cr4" name="customRadioInline2" class="custom-control-input">
-					  <label class="custom-control-label" for="cr4">Country / Region 4</label>
-					</div>
-					<div class="custom-control custom-radio">
-					  <input type="radio" id="cr5" name="customRadioInline2" class="custom-control-input">
-					  <label class="custom-control-label" for="cr5">Country / Region 5</label>
-					</div>
-					<div class="custom-control custom-radio">
-					  <input type="radio" id="cr6" name="customRadioInline2" class="custom-control-input">
-					  <label class="custom-control-label" for="cr6">Country / Region 6</label>
-					</div>
-					<div class="custom-control custom-radio">
-					  <input type="radio" id="cr7" name="customRadioInline2" class="custom-control-input">
-					  <label class="custom-control-label" for="cr7">Country / Region 7</label>
-					</div>
-					<div class="custom-control custom-radio">
-					  <input type="radio" id="cr8" name="customRadioInline2" class="custom-control-input">
-					  <label class="custom-control-label" for="cr8">Country / Region 8</label>
-					</div> -->
 				</div>
-	    </ng-scrollbar>
-		</div>
-		<div class="rc side-heading-ctn">
-			<div class="rc side-heading l-l cp" (click)="toggleSideLanguage()">
-				<div>					
-					<img src="assets/translate.png" />Language
+				<div class="rc side-heading-ctn">
+					<div class="rc side-heading l-l cp" (click)="toggleSideAccRate()">
+						<div>					
+							<img src="assets/percentage.png" />Acceptance Rate
+						</div>
+						<span class="float-right">					
+							<img *ngIf="showSideAccRate" src="assets/arrow-up.png" />
+							<img *ngIf="!showSideAccRate" src="assets/arrow-down.png" />
+						</span>
+					</div>
+					<div class="side-heading-content" [hidden]="!showSideAccRate">
+						<div class="input-ctn l-l">
+							<div class="j-sb mb-2">
+								<span>From %</span>
+								<input type="text" [(ngModel)]="accRate.from" class="form-control" />
+			        </div>
+			        <div class="j-sb">
+								<span>To %</span>
+								<input type="text" [(ngModel)]="accRate.to" class="form-control" />
+			        </div>
+			      </div>
+					</div>
 				</div>
-				<span class="float-right">					
-					<img *ngIf="showSideLanguage" src="assets/arrow-up.png" />
-					<img *ngIf="!showSideLanguage" src="assets/arrow-down.png" />
-				</span>
-			</div>			
-	    <ng-scrollbar [hidden]="!showSideLanguage">
-				<div class="side-heading-content l-l" [hidden]="!showSideLanguage">
-					<div *ngFor="let c of lang; let i = index;" class="custom-control custom-checkbox mb-2 cat">
-					  <input [(ngModel)]="c.checked" type="checkbox" class="custom-control-input" id="checkLang{{i}}">
-					  <label class="custom-control-label" for="checkLang{{i}}">&nbsp;&nbsp;{{c.name}}</label>
-					</div>	
-					<!-- <div class="custom-control custom-radio custom-control-inline">
-					  <input type="radio" id="l1" name="customRadioInline3" class="custom-control-input">
-					  <label class="custom-control-label" for="l1">English</label>
-					</div><br/>
-					<div class="custom-control custom-radio custom-control-inline">
-					  <input type="radio" id="l2" name="customRadioInline3" class="custom-control-input">
-					  <label class="custom-control-label" for="l2">German</label>
-					</div><br/>
-					<div class="custom-control custom-radio custom-control-inline">
-					  <input type="radio" id="l3" name="customRadioInline3" class="custom-control-input">
-					  <label class="custom-control-label" for="l3">French</label>
-					</div> -->
-				</div>
-	    </ng-scrollbar>
-		</div>
-		<div class="rc side-heading-ctn">
-			<div class="rc side-heading l-l cp" (click)="toggleSideImpactFactor()">
-				<div>					
-					<img src="assets/punch.png" />Impact Factor
-				</div>
-				<span class="float-right">					
-					<img *ngIf="showSideImpactFactor" src="assets/arrow-up.png" />
-					<img *ngIf="!showSideImpactFactor" src="assets/arrow-down.png" />
-				</span>
-			</div>
-			<div class="side-heading-content" [hidden]="!showSideImpactFactor">
-				<div class="input-ctn l-l">
-					<div class="j-sb mb-2">
-						<span>From</span>
-						<input type="text" [(ngModel)]="impFac.from" class="form-control" />
-	        </div>
-	        <div class="j-sb">
-						<span>To</span>
-						<input type="text" [(ngModel)]="impFac.to" class="form-control" />
-	        </div>
-	      </div>
-			</div>
-		</div>
-		<div class="rc side-heading-ctn">
-			<div class="rc side-heading l-l cp" (click)="toggleSideAccRate()">
-				<div>					
-					<img src="assets/percentage.png" />Acceptance Rate
-				</div>
-				<span class="float-right">					
-					<img *ngIf="showSideAccRate" src="assets/arrow-up.png" />
-					<img *ngIf="!showSideAccRate" src="assets/arrow-down.png" />
-				</span>
-			</div>
-			<div class="side-heading-content" [hidden]="!showSideAccRate">
-				<div class="input-ctn l-l">
-					<div class="j-sb mb-2">
-						<span>From %</span>
-						<input type="text" [(ngModel)]="accRate.from" class="form-control" />
-	        </div>
-	        <div class="j-sb">
-						<span>To %</span>
-						<input type="text" [(ngModel)]="accRate.to" class="form-control" />
-	        </div>
-	      </div>
-			</div>
-		</div>
-		<div class="btn-ctn j-sb">
-			<button class="btn btn-outline-sh1 btn-lg l-l" (click)="clear()">Cancel</button>
-			<button class="btn btn-sh2 btn-lg l-l">Submit</button>
-		</div>
-	</div>
-	<div class="col-md-8 l-l heading-ctn-main mt-0">
-		<div class="j-sb fs mb-4">
-			<span class="title b-t">YOUR RESULTS</span>
-			<div>
-				Show on page: 
-				<a class="pag-items" href="#">20</a>
-				<a class="pag-items" href="#">30</a>
-				<a class="pag-items" href="#">50</a>
-			</div>
-		</div>
-		<div class="result-row" *ngFor="let r of results; let i = index;">
-			<div class="rc side-heading-light j-sb cp" (click)="selectRow(r)" [ngClass]="{active: isRowActive(r)}">
-				<span>{{ r.n }}</span>
-				<span>Impact Factor</span>
-				<span>Acc Rule</span>
-				<span>Total Issues</span>
-				<span>Unknown Word</span>
-				<div (click)="showRow(r, $event);" class="custom-control custom-checkbox">
-				  <input [(ngModel)]="r.checked" type="checkbox" class="custom-control-input" id="customCheck{{i}}">
-				  <label class="custom-control-label" for="customCheck{{i}}"></label>
+				<div class="btn-ctn j-sb">
+					<button class="btn btn-outline-sh1 btn-lg l-l" (click)="clear()">Cancel</button>
+					<button class="btn btn-sh2 btn-lg l-l">Submit</button>
 				</div>
 			</div>
-			<table class="table table-striped" *ngIf="r.active">
-			  <tbody>
-			    <tr>
-			      <td>Title</td>
-			      <td>Factor 332</td>
-			      <td>Rule Acc.</td>
-			      <td>Sample Issue</td>
-			      <td>Line Value</td>
-			      <td>&nbsp;</td>
-			    </tr>
-			    <tr>
-			      <td>Title</td>
-			      <td>Factor 321</td>
-			      <td>Rule Acc.</td>
-			      <td>Sample Issue</td>
-			      <td>Line Value</td>
-			      <td>&nbsp;</td>
-			    </tr>
-			    <tr>
-			      <td>Title</td>
-			      <td>Factor 332</td>
-			      <td>Rule Acc.</td>
-			      <td>Sample Issue</td>
-			      <td>Line Value</td>
-			      <td>&nbsp;</td>
-			    </tr>
-			    <tr>
-			      <td>Title</td>
-			      <td>Factor 332</td>
-			      <td>Rule Acc.</td>
-			      <td>Sample Issue</td>
-			      <td>Line Value</td>
-			      <td>&nbsp;</td>
-			    </tr>
-			    <tr>
-			      <td>Title</td>
-			      <td>Factor 321</td>
-			      <td>Rule Acc.</td>
-			      <td>Sample Issue</td>
-			      <td>Line Value</td>
-			      <td>&nbsp;</td>
-			    </tr>
-			    <tr>
-			      <td>Title</td>
-			      <td>Factor 332</td>
-			      <td>Rule Acc.</td>
-			      <td>Sample Issue</td>
-			      <td>Line Value</td>
-			      <td>&nbsp;</td>
-			    </tr>
-			  </tbody>
-			</table>
-		</div>
-		<div class="pag-ctn j-c">
-			<div class="pag-btn" style="margin-right: 30px;"><</div>
-			<div class="num">1</div>
-			<div class="active num">2</div>
-			<div class="num">3</div>
-			<div class="pag-btn" style="margin-left: 30px;">></div>
+			<div class="col-md-8 l-l heading-ctn-main mt-0">
+				<div class="j-sb fs mb-4">
+					<span class="title b-t">YOUR RESULTS</span>
+					<div>
+						Show on page: 
+						<a class="pag-items" href="#">20</a>
+						<a class="pag-items" href="#">30</a>
+						<a class="pag-items" href="#">50</a>
+					</div>
+				</div>
+				<div class="result-row" *ngFor="let r of results; let i = index;">
+					<div class="rc side-heading-light j-sb cp" (click)="selectRow(r)" [ngClass]="{active: isRowActive(r)}">
+						<span>{{ r.n }}</span>
+						<span>Impact Factor</span>
+						<span>Acc Rule</span>
+						<span>Total Issues</span>
+						<span>Unknown Word</span>
+						<div (click)="showRow(r, $event);" class="custom-control custom-checkbox">
+						  <input [(ngModel)]="r.checked" type="checkbox" class="custom-control-input" id="customCheck{{i}}">
+						  <label class="custom-control-label" for="customCheck{{i}}"></label>
+						</div>
+					</div>
+					<table class="table table-striped" *ngIf="r.active">
+					  <tbody>
+					    <tr>
+					      <td>Title</td>
+					      <td>Factor 332</td>
+					      <td>Rule Acc.</td>
+					      <td>Sample Issue</td>
+					      <td>Line Value</td>
+					      <td>&nbsp;</td>
+					    </tr>
+					    <tr>
+					      <td>Title</td>
+					      <td>Factor 321</td>
+					      <td>Rule Acc.</td>
+					      <td>Sample Issue</td>
+					      <td>Line Value</td>
+					      <td>&nbsp;</td>
+					    </tr>
+					    <tr>
+					      <td>Title</td>
+					      <td>Factor 332</td>
+					      <td>Rule Acc.</td>
+					      <td>Sample Issue</td>
+					      <td>Line Value</td>
+					      <td>&nbsp;</td>
+					    </tr>
+					    <tr>
+					      <td>Title</td>
+					      <td>Factor 332</td>
+					      <td>Rule Acc.</td>
+					      <td>Sample Issue</td>
+					      <td>Line Value</td>
+					      <td>&nbsp;</td>
+					    </tr>
+					    <tr>
+					      <td>Title</td>
+					      <td>Factor 321</td>
+					      <td>Rule Acc.</td>
+					      <td>Sample Issue</td>
+					      <td>Line Value</td>
+					      <td>&nbsp;</td>
+					    </tr>
+					    <tr>
+					      <td>Title</td>
+					      <td>Factor 332</td>
+					      <td>Rule Acc.</td>
+					      <td>Sample Issue</td>
+					      <td>Line Value</td>
+					      <td>&nbsp;</td>
+					    </tr>
+					  </tbody>
+					</table>
+				</div>
+				<div class="pag-ctn j-c">
+					<div class="pag-btn" style="margin-right: 30px;"><</div>
+					<div class="num">1</div>
+					<div class="active num">2</div>
+					<div class="num">3</div>
+					<div class="pag-btn" style="margin-left: 30px;">></div>
+				</div>
+			</div>
 		</div>
 	</div>
 </div>
+<app-footer></app-footer>
+<app-sidebar></app-sidebar>
