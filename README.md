@@ -1,4 +1,13 @@
-# ScipoeiaFe
+# Scipoeia Dashboard
+
+A feature-rich dashboard for a scientific research assistant tool
+
+[Demo](https://envisagecyberart.in/projects/landingpages/scipoeia/)
+
+![Screenshot](Screenshot.jpg?raw=true)
+
+## Author
+[Anurag Srivastava](https://www.envisagecyberart.in)
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 7.0.2.
 
