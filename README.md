@@ -2,7 +2,7 @@
 
 A feature-rich dashboard for a scientific research assistant tool
 
-[Demo](https://envisagecyberart.in/projects/landingpages/scipoeia/)
+[Demo](https://envisagecyberart.in/projects/dashboards/scipoeia-fe/v4/#/explorer)
 
 ![Screenshot](Screenshot.jpg?raw=true)
 
